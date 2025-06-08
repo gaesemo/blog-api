@@ -8,8 +8,8 @@ import (
 	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
+	v1 "github.com/gaesemo/tech-blog-api/go/service/user/v1"
 	http "net/http"
-	v1 "service/user/v1"
 	strings "strings"
 )
 

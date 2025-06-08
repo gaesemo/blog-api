@@ -191,7 +191,7 @@ const file_types_v1_user_proto_rawDesc = "" +
 	"\tUserGrade\x12\x1a\n" +
 	"\x16USER_GRADE_UNSPECIFIED\x10\x00\x12\x13\n" +
 	"\x0fUSER_GRADE_NONE\x10\x01\x12\x15\n" +
-	"\x11USER_GRADE_MEMBER\x10\x02B\x12Z\x10types/v1;typesv1b\x06proto3"
+	"\x11USER_GRADE_MEMBER\x10\x02B6Z4github.com/gaesemo/tech-blog-api/go/types/v1;typesv1b\x06proto3"
 
 var (
 	file_types_v1_user_proto_rawDescOnce sync.Once

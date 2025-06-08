@@ -218,7 +218,7 @@ func (x *LoginRequest) GetAuthCode() string {
 type LoginResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	AccessToken   string                 `protobuf:"bytes,1,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"` // jwt
-	Session       string                 `protobuf:"bytes,2,opt,name=session,proto3" json:"session,omitempty"`                            // uuid
+	SessionId     string                 `protobuf:"bytes,2,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`       // uuid
 	IsNewUser     bool                   `protobuf:"varint,3,opt,name=is_new_user,json=isNewUser,proto3" json:"is_new_user,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -261,9 +261,9 @@ func (x *LoginResponse) GetAccessToken() string {
 	return ""
 }
 
-func (x *LoginResponse) GetSession() string {
+func (x *LoginResponse) GetSessionId() string {
 	if x != nil {
-		return x.Session
+		return x.SessionId
 	}
 	return ""
 }
@@ -277,7 +277,7 @@ func (x *LoginResponse) GetIsNewUser() bool {
 
 type LogoutRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Session       string                 `protobuf:"bytes,1,opt,name=session,proto3" json:"session,omitempty"`
+	SessionId     string                 `protobuf:"bytes,1,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -312,9 +312,9 @@ func (*LogoutRequest) Descriptor() ([]byte, []int) {
 	return file_service_auth_v1_service_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *LogoutRequest) GetSession() string {
+func (x *LogoutRequest) GetSessionId() string {
 	if x != nil {
-		return x.Session
+		return x.SessionId
 	}
 	return ""
 }
@@ -375,13 +375,15 @@ const file_service_auth_v1_service_proto_rawDesc = "" +
 	"\bauth_url\x18\x01 \x01(\tR\aauthUrl\"o\n" +
 	"\fLoginRequest\x12B\n" +
 	"\rauth_provider\x18\x01 \x01(\x0e2\x1d.service.auth.v1.AuthProviderR\fauthProvider\x12\x1b\n" +
-	"\tauth_code\x18\x02 \x01(\tR\bauthCode\"l\n" +
+	"\tauth_code\x18\x02 \x01(\tR\bauthCode\"q\n" +
 	"\rLoginResponse\x12!\n" +
-	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\x12\x18\n" +
-	"\asession\x18\x02 \x01(\tR\asession\x12\x1e\n" +
-	"\vis_new_user\x18\x03 \x01(\bR\tisNewUser\")\n" +
-	"\rLogoutRequest\x12\x18\n" +
-	"\asession\x18\x01 \x01(\tR\asession\"*\n" +
+	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x02 \x01(\tR\tsessionId\x12\x1e\n" +
+	"\vis_new_user\x18\x03 \x01(\bR\tisNewUser\".\n" +
+	"\rLogoutRequest\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x01 \x01(\tR\tsessionId\"*\n" +
 	"\x0eLogoutResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess*G\n" +
 	"\fAuthProvider\x12\x1d\n" +
@@ -391,7 +393,7 @@ const file_service_auth_v1_service_proto_rawDesc = "" +
 	"\n" +
 	"GetAuthURL\x12\".service.auth.v1.GetAuthURLRequest\x1a#.service.auth.v1.GetAuthURLResponse\"\x00\x12H\n" +
 	"\x05Login\x12\x1d.service.auth.v1.LoginRequest\x1a\x1e.service.auth.v1.LoginResponse\"\x00\x12K\n" +
-	"\x06Logout\x12\x1e.service.auth.v1.LogoutRequest\x1a\x1f.service.auth.v1.LogoutResponse\"\x00B\x18Z\x16service/auth/v1;authv1b\x06proto3"
+	"\x06Logout\x12\x1e.service.auth.v1.LogoutRequest\x1a\x1f.service.auth.v1.LogoutResponse\"\x00B<Z:github.com/gaesemo/tech-blog-api/go/service/auth/v1;authv1b\x06proto3"
 
 var (
 	file_service_auth_v1_service_proto_rawDescOnce sync.Once

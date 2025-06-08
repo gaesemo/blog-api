@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file service/auth/v1/service.proto.
  */
 export const file_service_auth_v1_service: GenFile = /*@__PURE__*/
-  fileDesc("Ch1zZXJ2aWNlL2F1dGgvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS5hdXRoLnYxIl8KEUdldEF1dGhVUkxSZXF1ZXN0EjQKDWF1dGhfcHJvdmlkZXIYASABKA4yHS5zZXJ2aWNlLmF1dGgudjEuQXV0aFByb3ZpZGVyEhQKDGNhbGxiYWNrX3VybBgCIAEoCSImChJHZXRBdXRoVVJMUmVzcG9uc2USEAoIYXV0aF91cmwYASABKAkiVwoMTG9naW5SZXF1ZXN0EjQKDWF1dGhfcHJvdmlkZXIYASABKA4yHS5zZXJ2aWNlLmF1dGgudjEuQXV0aFByb3ZpZGVyEhEKCWF1dGhfY29kZRgCIAEoCSJLCg1Mb2dpblJlc3BvbnNlEhQKDGFjY2Vzc190b2tlbhgBIAEoCRIPCgdzZXNzaW9uGAIgASgJEhMKC2lzX25ld191c2VyGAMgASgIIiAKDUxvZ291dFJlcXVlc3QSDwoHc2Vzc2lvbhgBIAEoCSIhCg5Mb2dvdXRSZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIKkcKDEF1dGhQcm92aWRlchIdChlBVVRIX1BST1ZJREVSX1VOU1BFQ0lGSUVEEAASGAoUQVVUSF9QUk9WSURFUl9HSVRIVUIQATL9AQoLQXV0aFNlcnZpY2USVwoKR2V0QXV0aFVSTBIiLnNlcnZpY2UuYXV0aC52MS5HZXRBdXRoVVJMUmVxdWVzdBojLnNlcnZpY2UuYXV0aC52MS5HZXRBdXRoVVJMUmVzcG9uc2UiABJICgVMb2dpbhIdLnNlcnZpY2UuYXV0aC52MS5Mb2dpblJlcXVlc3QaHi5zZXJ2aWNlLmF1dGgudjEuTG9naW5SZXNwb25zZSIAEksKBkxvZ291dBIeLnNlcnZpY2UuYXV0aC52MS5Mb2dvdXRSZXF1ZXN0Gh8uc2VydmljZS5hdXRoLnYxLkxvZ291dFJlc3BvbnNlIgBCGFoWc2VydmljZS9hdXRoL3YxO2F1dGh2MWIGcHJvdG8z");
+  fileDesc("Ch1zZXJ2aWNlL2F1dGgvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS5hdXRoLnYxIl8KEUdldEF1dGhVUkxSZXF1ZXN0EjQKDWF1dGhfcHJvdmlkZXIYASABKA4yHS5zZXJ2aWNlLmF1dGgudjEuQXV0aFByb3ZpZGVyEhQKDGNhbGxiYWNrX3VybBgCIAEoCSImChJHZXRBdXRoVVJMUmVzcG9uc2USEAoIYXV0aF91cmwYASABKAkiVwoMTG9naW5SZXF1ZXN0EjQKDWF1dGhfcHJvdmlkZXIYASABKA4yHS5zZXJ2aWNlLmF1dGgudjEuQXV0aFByb3ZpZGVyEhEKCWF1dGhfY29kZRgCIAEoCSJOCg1Mb2dpblJlc3BvbnNlEhQKDGFjY2Vzc190b2tlbhgBIAEoCRISCgpzZXNzaW9uX2lkGAIgASgJEhMKC2lzX25ld191c2VyGAMgASgIIiMKDUxvZ291dFJlcXVlc3QSEgoKc2Vzc2lvbl9pZBgBIAEoCSIhCg5Mb2dvdXRSZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIKkcKDEF1dGhQcm92aWRlchIdChlBVVRIX1BST1ZJREVSX1VOU1BFQ0lGSUVEEAASGAoUQVVUSF9QUk9WSURFUl9HSVRIVUIQATL9AQoLQXV0aFNlcnZpY2USVwoKR2V0QXV0aFVSTBIiLnNlcnZpY2UuYXV0aC52MS5HZXRBdXRoVVJMUmVxdWVzdBojLnNlcnZpY2UuYXV0aC52MS5HZXRBdXRoVVJMUmVzcG9uc2UiABJICgVMb2dpbhIdLnNlcnZpY2UuYXV0aC52MS5Mb2dpblJlcXVlc3QaHi5zZXJ2aWNlLmF1dGgudjEuTG9naW5SZXNwb25zZSIAEksKBkxvZ291dBIeLnNlcnZpY2UuYXV0aC52MS5Mb2dvdXRSZXF1ZXN0Gh8uc2VydmljZS5hdXRoLnYxLkxvZ291dFJlc3BvbnNlIgBCPFo6Z2l0aHViLmNvbS9nYWVzZW1vL3RlY2gtYmxvZy1hcGkvZ28vc2VydmljZS9hdXRoL3YxO2F1dGh2MWIGcHJvdG8z");
 
 /**
  * @generated from message service.auth.v1.GetAuthURLRequest
@@ -87,9 +87,9 @@ export type LoginResponse = Message<"service.auth.v1.LoginResponse"> & {
   /**
    * uuid
    *
-   * @generated from field: string session = 2;
+   * @generated from field: string session_id = 2;
    */
-  session: string;
+  sessionId: string;
 
   /**
    * @generated from field: bool is_new_user = 3;
@@ -109,9 +109,9 @@ export const LoginResponseSchema: GenMessage<LoginResponse> = /*@__PURE__*/
  */
 export type LogoutRequest = Message<"service.auth.v1.LogoutRequest"> & {
   /**
-   * @generated from field: string session = 1;
+   * @generated from field: string session_id = 1;
    */
-  session: string;
+  sessionId: string;
 };
 
 /**

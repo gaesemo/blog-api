@@ -7,11 +7,11 @@
 package userv1
 
 import (
+	v1 "github.com/gaesemo/tech-blog-api/go/types/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
-	v1 "types/v1"
 	unsafe "unsafe"
 )
 
@@ -157,7 +157,7 @@ const file_service_user_v1_service_proto_rawDesc = "" +
 	"\x05grade\x18\x04 \x01(\x0e2\x13.types.v1.UserGradeR\x05grade2f\n" +
 	"\vUserService\x12W\n" +
 	"\n" +
-	"GetProfile\x12\".service.user.v1.GetProfileRequest\x1a#.service.user.v1.GetProfileResponse\"\x00B\x18Z\x16service/user/v1;userv1b\x06proto3"
+	"GetProfile\x12\".service.user.v1.GetProfileRequest\x1a#.service.user.v1.GetProfileResponse\"\x00B<Z:github.com/gaesemo/tech-blog-api/go/service/user/v1;userv1b\x06proto3"
 
 var (
 	file_service_user_v1_service_proto_rawDescOnce sync.Once
