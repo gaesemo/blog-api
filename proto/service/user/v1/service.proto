@@ -1,12 +1,12 @@
 syntax = "proto3";
 
 package service.user.v1;
-option go_package "service/user/v1;userv1;"
+option go_package = "github.com/gaesemo/tech-blog-api/go/service/user/v1;userv1";
 
 import "types/v1/user.proto";
 
 service UserService {
-    rpc GetProfile(GetProfileRequest) returns GetProfileResponse {}
+    rpc GetProfile(GetProfileRequest) returns (GetProfileResponse) {}
 }
 
 message GetProfileRequest {

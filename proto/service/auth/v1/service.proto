@@ -1,17 +1,17 @@
-syntax = "proto3"
+syntax = "proto3";
 
 package service.auth.v1;
-option go_package "service/auth/v1;authv1;"
+option go_package = "github.com/gaesemo/tech-blog-api/go/service/auth/v1;authv1";
 
 service AuthService {
-    rpc GetAuthURL(GetAuthURLRequest) returns GetAuthURLResponse {}
-    rpc Login(LoginRequest) returns LoginResponse {}
-    rpc Logout(LogoutRequest) returns LogoutResponse {}
+    rpc GetAuthURL(GetAuthURLRequest) returns (GetAuthURLResponse) {}
+    rpc Login(LoginRequest) returns (LoginResponse) {}
+    rpc Logout(LogoutRequest) returns (LogoutResponse) {}
 }
 
 enum AuthProvider {
-    AuthProvider_UNSPECIFIED = 0;
-    AuthProvider_GITHUB = 1;
+    AUTH_PROVIDER_UNSPECIFIED = 0;
+    AUTH_PROVIDER_GITHUB = 1;
 }
 
 message GetAuthURLRequest {
@@ -30,12 +30,12 @@ message LoginRequest {
 
 message LoginResponse {
     string access_token = 1; // jwt
-    string session = 2; // uuid
+    string session_id = 2; // uuid
     bool is_new_user = 3;
 }
 
 message LogoutRequest {
-    string session = 1;
+    string session_id = 1;
 }
 
 message LogoutResponse {

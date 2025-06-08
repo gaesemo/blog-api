@@ -1,14 +1,14 @@
-syntax = "proto3"
+syntax = "proto3";
 
 package types.v1;
-option go_package "types/v1;typesv1";
+option go_package = "github.com/gaesemo/tech-blog-api/go/types/v1;typesv1";
 
-import "google.protobuf.Timestamp";
+import "google/protobuf/timestamp.proto";
 
 enum UserGrade {
-    UserGrade_UNSPECIFIED = 0;
-    UserGrade_NONE = 1;
-    UserGrade_MEMBER = 2;
+    USER_GRADE_UNSPECIFIED = 0;
+    USER_GRADE_NONE = 1;
+    USER_GRADE_MEMBER = 2;
 }
 
 message User {
