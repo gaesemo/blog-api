@@ -12,11 +12,13 @@ enum UserGrade {
 }
 
 message User {
-    id uint64 = 1;
-    email string = 2; 
-    username string = 3;
-    UserGrade grade = 4;
+    uint64 id = 1;
+    string username = 2;
+    string email = 3; 
+    string profile_image_url = 4;
+    string about_me = 5;
     
+    UserGrade grade = 10; 
     google.protobuf.Timestamp created_at = 100;
     google.protobuf.Timestamp updated_at = 101;
 }

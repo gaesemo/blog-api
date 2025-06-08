@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package service.user.v1;
+option go_package "service/user/v1;userv1;"
+
+import "types/v1/user.proto";
+
+service UserService {
+    rpc GetProfile(GetProfileRequest) returns GetProfileResponse {}
+}
+
+message GetProfileRequest {
+    string access_token = 1;
+    string session = 2;
+}
+
+message GetProfileResponse {
+    string username = 1;
+    string email = 2;
+    string profile_image_url = 3;
+    types.v1.UserGrade grade = 4;
+}

@@ -4,10 +4,9 @@ package service.auth.v1;
 option go_package "service/auth/v1;authv1;"
 
 service AuthService {
-    rpc GetAuthURL(GetAuthURLRequest) GetAuthURLResponse {}
-    rpc ExchangeCode(ExchangeCodeRequest) ExchangeCodeResponse {}
-    rpc RefreshToken(RefreshTokenRequest) RefreshTokenResponse {}
-    rpc VerifyToken(VerityTokenRequest) VerifyTokenResponse {}
+    rpc GetAuthURL(GetAuthURLRequest) returns GetAuthURLResponse {}
+    rpc Login(LoginRequest) returns LoginResponse {}
+    rpc Logout(LogoutRequest) returns LogoutResponse {}
 }
 
 enum AuthProvider {
@@ -24,28 +23,21 @@ message GetAuthURLResponse {
     string auth_url = 1;
 }
 
-message ExchangeCodeRequest {
-    string code = 1;
+message LoginRequest {
+    AuthProvider auth_provider = 1;
+    string auth_code = 2;
 }
 
-message ExchangeCodeResponse {
-    string access_token = 1;
-    string refresh_token = 2;
+message LoginResponse {
+    string access_token = 1; // jwt
+    string session = 2; // uuid
+    bool is_new_user = 3;
 }
 
-message RefreshTokenRequest {
-    string refresh_token = 1;
+message LogoutRequest {
+    string session = 1;
 }
 
-message RefreshTokenRespone {
-    string access_token = 1;
-    string refresh_token = 2;
-}
-
-message VerifyTokenRequest {
-    string access_token = 1;
-}
-
-message VerifyTokenResponse {
-
+message LogoutResponse {
+    bool success = 1;
 }
