@@ -1,0 +1,69 @@
+syntax = "proto3"
+
+package service.post.v1;
+option go_package "service/post/v1;postv1"
+
+import "types/v1/post.proto"
+
+service PostService {
+    rpc Upload(UploadRequest) UploadResponse {}
+    rpc Search(SearchRequest) SearchResponse {} // full text search?
+    rpc List(ListRequest) ListResponse {}
+    rpc Detail(DetailRequest) DetailResponse {}
+    rpc Update(UpdateRequest) UpdateResponse {}
+    rpc Delete(DeleteRequest) DeleteResponse {}  
+}
+
+message UploadRequest {
+    // required
+    string token = 1;
+    Post post = 2;
+}
+
+message UploadResponse {
+    
+}
+
+message ListRequest {
+    // required
+    string token = 1;
+}
+
+message ListResponse {
+
+}
+
+message DetailRequest {
+    // required
+    string token = 1;
+}
+
+message DetailResponse {
+
+}
+
+message SearchRequest {
+    // required
+    string token = 1;
+}
+
+message SearchResponse {
+
+}
+
+message UpdateRequest {
+    // required
+    string token = 1;
+}
+
+message UpdateResponse {
+
+}
+
+message DeleteRequest {
+    string token = 1;
+}
+
+message DeleteResponse {
+
+}

@@ -1,0 +1,22 @@
+syntax = "proto3"
+
+package types.v1;
+option go_package "types/v1;typesv1";
+
+import "google.protobuf.Timestamp";
+
+enum UserGrade {
+    UserGrade_UNSPECIFIED = 0;
+    UserGrade_NONE = 1;
+    UserGrade_MEMBER = 2;
+}
+
+message User {
+    id uint64 = 1;
+    email string = 2; 
+    username string = 3;
+    UserGrade grade = 4;
+    
+    google.protobuf.Timestamp created_at = 100;
+    google.protobuf.Timestamp updated_at = 101;
+}

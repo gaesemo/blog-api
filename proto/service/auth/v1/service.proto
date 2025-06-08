@@ -1,0 +1,51 @@
+syntax = "proto3"
+
+package service.auth.v1;
+option go_package "service/auth/v1;authv1;"
+
+service AuthService {
+    rpc GetAuthURL(GetAuthURLRequest) GetAuthURLResponse {}
+    rpc ExchangeCode(ExchangeCodeRequest) ExchangeCodeResponse {}
+    rpc RefreshToken(RefreshTokenRequest) RefreshTokenResponse {}
+    rpc VerifyToken(VerityTokenRequest) VerifyTokenResponse {}
+}
+
+enum AuthProvider {
+    AuthProvider_UNSPECIFIED = 0;
+    AuthProvider_GITHUB = 1;
+}
+
+message GetAuthURLRequest {
+    AuthProvider auth_provider = 1;
+    string callback_url = 2;
+}
+
+message GetAuthURLResponse {
+    string auth_url = 1;
+}
+
+message ExchangeCodeRequest {
+    string code = 1;
+}
+
+message ExchangeCodeResponse {
+    string access_token = 1;
+    string refresh_token = 2;
+}
+
+message RefreshTokenRequest {
+    string refresh_token = 1;
+}
+
+message RefreshTokenRespone {
+    string access_token = 1;
+    string refresh_token = 2;
+}
+
+message VerifyTokenRequest {
+    string access_token = 1;
+}
+
+message VerifyTokenResponse {
+
+}
