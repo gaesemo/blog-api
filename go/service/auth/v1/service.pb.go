@@ -23,9 +23,10 @@ const (
 )
 
 type GetAuthURLRequest struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	IdentityProvider v1.IdentityProvider    `protobuf:"varint,1,opt,name=identity_provider,json=identityProvider,proto3,enum=types.v1.IdentityProvider" json:"identity_provider,omitempty"`
-	CallbackUrl      string                 `protobuf:"bytes,2,opt,name=callback_url,json=callbackUrl,proto3" json:"callback_url,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// requried
+	IdentityProvider v1.IdentityProvider `protobuf:"varint,1,opt,name=identity_provider,json=identityProvider,proto3,enum=types.v1.IdentityProvider" json:"identity_provider,omitempty"`
+	RedirectUri      *string             `protobuf:"bytes,2,opt,name=redirect_uri,json=redirectUri,proto3,oneof" json:"redirect_uri,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -67,9 +68,9 @@ func (x *GetAuthURLRequest) GetIdentityProvider() v1.IdentityProvider {
 	return v1.IdentityProvider(0)
 }
 
-func (x *GetAuthURLRequest) GetCallbackUrl() string {
-	if x != nil {
-		return x.CallbackUrl
+func (x *GetAuthURLRequest) GetRedirectUri() string {
+	if x != nil && x.RedirectUri != nil {
+		return *x.RedirectUri
 	}
 	return ""
 }
@@ -322,10 +323,11 @@ var File_service_auth_v1_service_proto protoreflect.FileDescriptor
 
 const file_service_auth_v1_service_proto_rawDesc = "" +
 	"\n" +
-	"\x1dservice/auth/v1/service.proto\x12\x0fservice.auth.v1\x1a types/v1/identity_provider.proto\"\x7f\n" +
+	"\x1dservice/auth/v1/service.proto\x12\x0fservice.auth.v1\x1a types/v1/identity_provider.proto\"\x95\x01\n" +
 	"\x11GetAuthURLRequest\x12G\n" +
-	"\x11identity_provider\x18\x01 \x01(\x0e2\x1a.types.v1.IdentityProviderR\x10identityProvider\x12!\n" +
-	"\fcallback_url\x18\x02 \x01(\tR\vcallbackUrl\"/\n" +
+	"\x11identity_provider\x18\x01 \x01(\x0e2\x1a.types.v1.IdentityProviderR\x10identityProvider\x12&\n" +
+	"\fredirect_uri\x18\x02 \x01(\tH\x00R\vredirectUri\x88\x01\x01B\x0f\n" +
+	"\r_redirect_uri\"/\n" +
 	"\x12GetAuthURLResponse\x12\x19\n" +
 	"\bauth_url\x18\x01 \x01(\tR\aauthUrl\"t\n" +
 	"\fLoginRequest\x12G\n" +
@@ -390,6 +392,7 @@ func file_service_auth_v1_service_proto_init() {
 	if File_service_auth_v1_service_proto != nil {
 		return
 	}
+	file_service_auth_v1_service_proto_msgTypes[0].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

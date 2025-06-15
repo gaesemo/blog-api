@@ -12,8 +12,9 @@ service AuthService {
 }
 
 message GetAuthURLRequest {
+    // requried
     types.v1.IdentityProvider identity_provider = 1;
-    string callback_url = 2;
+    optional string redirect_uri = 2;
 }
 
 message GetAuthURLResponse {
