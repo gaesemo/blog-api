@@ -2,8 +2,8 @@
 // @generated from file types/v1/user.proto (package types.v1, syntax proto3)
 /* eslint-disable */
 
-import type { GenEnum, GenFile, GenMessage } from "@bufbuild/protobuf/codegenv2";
-import { enumDesc, fileDesc, messageDesc } from "@bufbuild/protobuf/codegenv2";
+import type { GenFile, GenMessage } from "@bufbuild/protobuf/codegenv2";
+import { fileDesc, messageDesc } from "@bufbuild/protobuf/codegenv2";
 import type { Timestamp } from "@bufbuild/protobuf/wkt";
 import { file_google_protobuf_timestamp } from "@bufbuild/protobuf/wkt";
 import type { IdentityProvider } from "./identity_provider_pb";
@@ -14,7 +14,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file types/v1/user.proto.
  */
 export const file_types_v1_user: GenFile = /*@__PURE__*/
-  fileDesc("ChN0eXBlcy92MS91c2VyLnByb3RvEgh0eXBlcy52MSKUAgoEVXNlchIKCgJpZBgBIAEoBBIQCgh1c2VybmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRISCgphdmF0YXJfdXJsGAQgASgJEhAKCGFib3V0X21lGAUgASgJEiIKBWdyYWRlGAogASgOMhMudHlwZXMudjEuVXNlckdyYWRlEjUKEWlkZW50aXR5X3Byb3ZpZGVyGAsgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlchIuCgpjcmVhdGVkX2F0GGQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GGUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCpTCglVc2VyR3JhZGUSGgoWVVNFUl9HUkFERV9VTlNQRUNJRklFRBAAEhMKD1VTRVJfR1JBREVfTk9ORRABEhUKEVVTRVJfR1JBREVfTUVNQkVSEAJCNlo0Z2l0aHViLmNvbS9nYWVzZW1vL3RlY2gtYmxvZy1hcGkvZ28vdHlwZXMvdjE7dHlwZXN2MWIGcHJvdG8z", [file_google_protobuf_timestamp, file_types_v1_identity_provider]);
+  fileDesc("ChN0eXBlcy92MS91c2VyLnByb3RvEgh0eXBlcy52MSLwAQoEVXNlchIKCgJpZBgBIAEoBBIQCgh1c2VybmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRISCgphdmF0YXJfdXJsGAQgASgJEhAKCGFib3V0X21lGAUgASgJEjUKEWlkZW50aXR5X3Byb3ZpZGVyGAYgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlchIuCgpjcmVhdGVkX2F0GGQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GGUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEI2WjRnaXRodWIuY29tL2dhZXNlbW8vdGVjaC1ibG9nLWFwaS9nby90eXBlcy92MTt0eXBlc3YxYgZwcm90bzM", [file_google_protobuf_timestamp, file_types_v1_identity_provider]);
 
 /**
  * @generated from message types.v1.User
@@ -46,12 +46,7 @@ export type User = Message<"types.v1.User"> & {
   aboutMe: string;
 
   /**
-   * @generated from field: types.v1.UserGrade grade = 10;
-   */
-  grade: UserGrade;
-
-  /**
-   * @generated from field: types.v1.IdentityProvider identity_provider = 11;
+   * @generated from field: types.v1.IdentityProvider identity_provider = 6;
    */
   identityProvider: IdentityProvider;
 
@@ -72,30 +67,4 @@ export type User = Message<"types.v1.User"> & {
  */
 export const UserSchema: GenMessage<User> = /*@__PURE__*/
   messageDesc(file_types_v1_user, 0);
-
-/**
- * @generated from enum types.v1.UserGrade
- */
-export enum UserGrade {
-  /**
-   * @generated from enum value: USER_GRADE_UNSPECIFIED = 0;
-   */
-  UNSPECIFIED = 0,
-
-  /**
-   * @generated from enum value: USER_GRADE_NONE = 1;
-   */
-  NONE = 1,
-
-  /**
-   * @generated from enum value: USER_GRADE_MEMBER = 2;
-   */
-  MEMBER = 2,
-}
-
-/**
- * Describes the enum types.v1.UserGrade.
- */
-export const UserGradeSchema: GenEnum<UserGrade> = /*@__PURE__*/
-  enumDesc(file_types_v1_user, 0);
 

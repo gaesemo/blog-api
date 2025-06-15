@@ -4,17 +4,13 @@
 
 import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
 import { fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
-import type { UserGrade } from "../../../types/v1/user_pb";
-import { file_types_v1_user } from "../../../types/v1/user_pb";
-import type { IdentityProvider } from "../../../types/v1/identity_provider_pb";
-import { file_types_v1_identity_provider } from "../../../types/v1/identity_provider_pb";
 import type { Message } from "@bufbuild/protobuf";
 
 /**
  * Describes the file service/user/v1/service.proto.
  */
 export const file_service_user_v1_service: GenFile = /*@__PURE__*/
-  fileDesc("Ch1zZXJ2aWNlL3VzZXIvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS51c2VyLnYxIjoKEUdldFByb2ZpbGVSZXF1ZXN0EhQKDGFjY2Vzc190b2tlbhgBIAEoCRIPCgdzZXNzaW9uGAIgASgJIqQBChJHZXRQcm9maWxlUmVzcG9uc2USEAoIdXNlcm5hbWUYASABKAkSDQoFZW1haWwYAiABKAkSEgoKYXZhdGFyX3VybBgDIAEoCRIiCgVncmFkZRgKIAEoDjITLnR5cGVzLnYxLlVzZXJHcmFkZRI1ChFpZGVudGl0eV9wcm92aWRlchgLIAEoDjIaLnR5cGVzLnYxLklkZW50aXR5UHJvdmlkZXIyZgoLVXNlclNlcnZpY2USVwoKR2V0UHJvZmlsZRIiLnNlcnZpY2UudXNlci52MS5HZXRQcm9maWxlUmVxdWVzdBojLnNlcnZpY2UudXNlci52MS5HZXRQcm9maWxlUmVzcG9uc2UiAEI8WjpnaXRodWIuY29tL2dhZXNlbW8vdGVjaC1ibG9nLWFwaS9nby9zZXJ2aWNlL3VzZXIvdjE7dXNlcnYxYgZwcm90bzM", [file_types_v1_user, file_types_v1_identity_provider]);
+  fileDesc("Ch1zZXJ2aWNlL3VzZXIvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS51c2VyLnYxIjoKEUdldFByb2ZpbGVSZXF1ZXN0EhQKDGFjY2Vzc190b2tlbhgBIAEoCRIPCgdzZXNzaW9uGAIgASgJIkkKEkdldFByb2ZpbGVSZXNwb25zZRIQCgh1c2VybmFtZRgBIAEoCRINCgVlbWFpbBgCIAEoCRISCgphdmF0YXJfdXJsGAMgASgJMmYKC1VzZXJTZXJ2aWNlElcKCkdldFByb2ZpbGUSIi5zZXJ2aWNlLnVzZXIudjEuR2V0UHJvZmlsZVJlcXVlc3QaIy5zZXJ2aWNlLnVzZXIudjEuR2V0UHJvZmlsZVJlc3BvbnNlIgBCPFo6Z2l0aHViLmNvbS9nYWVzZW1vL3RlY2gtYmxvZy1hcGkvZ28vc2VydmljZS91c2VyL3YxO3VzZXJ2MWIGcHJvdG8z");
 
 /**
  * @generated from message service.user.v1.GetProfileRequest
@@ -56,16 +52,6 @@ export type GetProfileResponse = Message<"service.user.v1.GetProfileResponse"> &
    * @generated from field: string avatar_url = 3;
    */
   avatarUrl: string;
-
-  /**
-   * @generated from field: types.v1.UserGrade grade = 10;
-   */
-  grade: UserGrade;
-
-  /**
-   * @generated from field: types.v1.IdentityProvider identity_provider = 11;
-   */
-  identityProvider: IdentityProvider;
 };
 
 /**
