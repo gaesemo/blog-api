@@ -7,6 +7,7 @@
 package authv1
 
 import (
+	v1 "github.com/gaesemo/tech-blog-api/go/types/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -21,58 +22,12 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type AuthProvider int32
-
-const (
-	AuthProvider_AUTH_PROVIDER_UNSPECIFIED AuthProvider = 0
-	AuthProvider_AUTH_PROVIDER_GITHUB      AuthProvider = 1
-)
-
-// Enum value maps for AuthProvider.
-var (
-	AuthProvider_name = map[int32]string{
-		0: "AUTH_PROVIDER_UNSPECIFIED",
-		1: "AUTH_PROVIDER_GITHUB",
-	}
-	AuthProvider_value = map[string]int32{
-		"AUTH_PROVIDER_UNSPECIFIED": 0,
-		"AUTH_PROVIDER_GITHUB":      1,
-	}
-)
-
-func (x AuthProvider) Enum() *AuthProvider {
-	p := new(AuthProvider)
-	*p = x
-	return p
-}
-
-func (x AuthProvider) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (AuthProvider) Descriptor() protoreflect.EnumDescriptor {
-	return file_service_auth_v1_service_proto_enumTypes[0].Descriptor()
-}
-
-func (AuthProvider) Type() protoreflect.EnumType {
-	return &file_service_auth_v1_service_proto_enumTypes[0]
-}
-
-func (x AuthProvider) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Use AuthProvider.Descriptor instead.
-func (AuthProvider) EnumDescriptor() ([]byte, []int) {
-	return file_service_auth_v1_service_proto_rawDescGZIP(), []int{0}
-}
-
 type GetAuthURLRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AuthProvider  AuthProvider           `protobuf:"varint,1,opt,name=auth_provider,json=authProvider,proto3,enum=service.auth.v1.AuthProvider" json:"auth_provider,omitempty"`
-	CallbackUrl   string                 `protobuf:"bytes,2,opt,name=callback_url,json=callbackUrl,proto3" json:"callback_url,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	IdentityProvider v1.IdentityProvider    `protobuf:"varint,1,opt,name=identity_provider,json=identityProvider,proto3,enum=types.v1.IdentityProvider" json:"identity_provider,omitempty"`
+	CallbackUrl      string                 `protobuf:"bytes,2,opt,name=callback_url,json=callbackUrl,proto3" json:"callback_url,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *GetAuthURLRequest) Reset() {
@@ -105,11 +60,11 @@ func (*GetAuthURLRequest) Descriptor() ([]byte, []int) {
 	return file_service_auth_v1_service_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *GetAuthURLRequest) GetAuthProvider() AuthProvider {
+func (x *GetAuthURLRequest) GetIdentityProvider() v1.IdentityProvider {
 	if x != nil {
-		return x.AuthProvider
+		return x.IdentityProvider
 	}
-	return AuthProvider_AUTH_PROVIDER_UNSPECIFIED
+	return v1.IdentityProvider(0)
 }
 
 func (x *GetAuthURLRequest) GetCallbackUrl() string {
@@ -164,11 +119,11 @@ func (x *GetAuthURLResponse) GetAuthUrl() string {
 }
 
 type LoginRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AuthProvider  AuthProvider           `protobuf:"varint,1,opt,name=auth_provider,json=authProvider,proto3,enum=service.auth.v1.AuthProvider" json:"auth_provider,omitempty"`
-	AuthCode      string                 `protobuf:"bytes,2,opt,name=auth_code,json=authCode,proto3" json:"auth_code,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	IdentityProvider v1.IdentityProvider    `protobuf:"varint,1,opt,name=identity_provider,json=identityProvider,proto3,enum=types.v1.IdentityProvider" json:"identity_provider,omitempty"`
+	AuthCode         string                 `protobuf:"bytes,2,opt,name=auth_code,json=authCode,proto3" json:"auth_code,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *LoginRequest) Reset() {
@@ -201,11 +156,11 @@ func (*LoginRequest) Descriptor() ([]byte, []int) {
 	return file_service_auth_v1_service_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *LoginRequest) GetAuthProvider() AuthProvider {
+func (x *LoginRequest) GetIdentityProvider() v1.IdentityProvider {
 	if x != nil {
-		return x.AuthProvider
+		return x.IdentityProvider
 	}
-	return AuthProvider_AUTH_PROVIDER_UNSPECIFIED
+	return v1.IdentityProvider(0)
 }
 
 func (x *LoginRequest) GetAuthCode() string {
@@ -367,14 +322,14 @@ var File_service_auth_v1_service_proto protoreflect.FileDescriptor
 
 const file_service_auth_v1_service_proto_rawDesc = "" +
 	"\n" +
-	"\x1dservice/auth/v1/service.proto\x12\x0fservice.auth.v1\"z\n" +
-	"\x11GetAuthURLRequest\x12B\n" +
-	"\rauth_provider\x18\x01 \x01(\x0e2\x1d.service.auth.v1.AuthProviderR\fauthProvider\x12!\n" +
+	"\x1dservice/auth/v1/service.proto\x12\x0fservice.auth.v1\x1a types/v1/identity_provider.proto\"\x7f\n" +
+	"\x11GetAuthURLRequest\x12G\n" +
+	"\x11identity_provider\x18\x01 \x01(\x0e2\x1a.types.v1.IdentityProviderR\x10identityProvider\x12!\n" +
 	"\fcallback_url\x18\x02 \x01(\tR\vcallbackUrl\"/\n" +
 	"\x12GetAuthURLResponse\x12\x19\n" +
-	"\bauth_url\x18\x01 \x01(\tR\aauthUrl\"o\n" +
-	"\fLoginRequest\x12B\n" +
-	"\rauth_provider\x18\x01 \x01(\x0e2\x1d.service.auth.v1.AuthProviderR\fauthProvider\x12\x1b\n" +
+	"\bauth_url\x18\x01 \x01(\tR\aauthUrl\"t\n" +
+	"\fLoginRequest\x12G\n" +
+	"\x11identity_provider\x18\x01 \x01(\x0e2\x1a.types.v1.IdentityProviderR\x10identityProvider\x12\x1b\n" +
 	"\tauth_code\x18\x02 \x01(\tR\bauthCode\"q\n" +
 	"\rLoginResponse\x12!\n" +
 	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\x12\x1d\n" +
@@ -385,10 +340,7 @@ const file_service_auth_v1_service_proto_rawDesc = "" +
 	"\n" +
 	"session_id\x18\x01 \x01(\tR\tsessionId\"*\n" +
 	"\x0eLogoutResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess*G\n" +
-	"\fAuthProvider\x12\x1d\n" +
-	"\x19AUTH_PROVIDER_UNSPECIFIED\x10\x00\x12\x18\n" +
-	"\x14AUTH_PROVIDER_GITHUB\x10\x012\xfd\x01\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess2\xfd\x01\n" +
 	"\vAuthService\x12W\n" +
 	"\n" +
 	"GetAuthURL\x12\".service.auth.v1.GetAuthURLRequest\x1a#.service.auth.v1.GetAuthURLResponse\"\x00\x12H\n" +
@@ -407,26 +359,25 @@ func file_service_auth_v1_service_proto_rawDescGZIP() []byte {
 	return file_service_auth_v1_service_proto_rawDescData
 }
 
-var file_service_auth_v1_service_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_service_auth_v1_service_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_service_auth_v1_service_proto_goTypes = []any{
-	(AuthProvider)(0),          // 0: service.auth.v1.AuthProvider
-	(*GetAuthURLRequest)(nil),  // 1: service.auth.v1.GetAuthURLRequest
-	(*GetAuthURLResponse)(nil), // 2: service.auth.v1.GetAuthURLResponse
-	(*LoginRequest)(nil),       // 3: service.auth.v1.LoginRequest
-	(*LoginResponse)(nil),      // 4: service.auth.v1.LoginResponse
-	(*LogoutRequest)(nil),      // 5: service.auth.v1.LogoutRequest
-	(*LogoutResponse)(nil),     // 6: service.auth.v1.LogoutResponse
+	(*GetAuthURLRequest)(nil),  // 0: service.auth.v1.GetAuthURLRequest
+	(*GetAuthURLResponse)(nil), // 1: service.auth.v1.GetAuthURLResponse
+	(*LoginRequest)(nil),       // 2: service.auth.v1.LoginRequest
+	(*LoginResponse)(nil),      // 3: service.auth.v1.LoginResponse
+	(*LogoutRequest)(nil),      // 4: service.auth.v1.LogoutRequest
+	(*LogoutResponse)(nil),     // 5: service.auth.v1.LogoutResponse
+	(v1.IdentityProvider)(0),   // 6: types.v1.IdentityProvider
 }
 var file_service_auth_v1_service_proto_depIdxs = []int32{
-	0, // 0: service.auth.v1.GetAuthURLRequest.auth_provider:type_name -> service.auth.v1.AuthProvider
-	0, // 1: service.auth.v1.LoginRequest.auth_provider:type_name -> service.auth.v1.AuthProvider
-	1, // 2: service.auth.v1.AuthService.GetAuthURL:input_type -> service.auth.v1.GetAuthURLRequest
-	3, // 3: service.auth.v1.AuthService.Login:input_type -> service.auth.v1.LoginRequest
-	5, // 4: service.auth.v1.AuthService.Logout:input_type -> service.auth.v1.LogoutRequest
-	2, // 5: service.auth.v1.AuthService.GetAuthURL:output_type -> service.auth.v1.GetAuthURLResponse
-	4, // 6: service.auth.v1.AuthService.Login:output_type -> service.auth.v1.LoginResponse
-	6, // 7: service.auth.v1.AuthService.Logout:output_type -> service.auth.v1.LogoutResponse
+	6, // 0: service.auth.v1.GetAuthURLRequest.identity_provider:type_name -> types.v1.IdentityProvider
+	6, // 1: service.auth.v1.LoginRequest.identity_provider:type_name -> types.v1.IdentityProvider
+	0, // 2: service.auth.v1.AuthService.GetAuthURL:input_type -> service.auth.v1.GetAuthURLRequest
+	2, // 3: service.auth.v1.AuthService.Login:input_type -> service.auth.v1.LoginRequest
+	4, // 4: service.auth.v1.AuthService.Logout:input_type -> service.auth.v1.LogoutRequest
+	1, // 5: service.auth.v1.AuthService.GetAuthURL:output_type -> service.auth.v1.GetAuthURLResponse
+	3, // 6: service.auth.v1.AuthService.Login:output_type -> service.auth.v1.LoginResponse
+	5, // 7: service.auth.v1.AuthService.Logout:output_type -> service.auth.v1.LogoutResponse
 	5, // [5:8] is the sub-list for method output_type
 	2, // [2:5] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -444,14 +395,13 @@ func file_service_auth_v1_service_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_service_auth_v1_service_proto_rawDesc), len(file_service_auth_v1_service_proto_rawDesc)),
-			NumEnums:      1,
+			NumEnums:      0,
 			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
 		GoTypes:           file_service_auth_v1_service_proto_goTypes,
 		DependencyIndexes: file_service_auth_v1_service_proto_depIdxs,
-		EnumInfos:         file_service_auth_v1_service_proto_enumTypes,
 		MessageInfos:      file_service_auth_v1_service_proto_msgTypes,
 	}.Build()
 	File_service_auth_v1_service_proto = out.File

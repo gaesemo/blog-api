@@ -75,13 +75,14 @@ func (x *GetProfileRequest) GetSession() string {
 }
 
 type GetProfileResponse struct {
-	state           protoimpl.MessageState `protogen:"open.v1"`
-	Username        string                 `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
-	Email           string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
-	ProfileImageUrl string                 `protobuf:"bytes,3,opt,name=profile_image_url,json=profileImageUrl,proto3" json:"profile_image_url,omitempty"`
-	Grade           v1.UserGrade           `protobuf:"varint,4,opt,name=grade,proto3,enum=types.v1.UserGrade" json:"grade,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Username         string                 `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
+	Email            string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
+	AvatarUrl        string                 `protobuf:"bytes,3,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
+	Grade            v1.UserGrade           `protobuf:"varint,10,opt,name=grade,proto3,enum=types.v1.UserGrade" json:"grade,omitempty"`
+	IdentityProvider v1.IdentityProvider    `protobuf:"varint,11,opt,name=identity_provider,json=identityProvider,proto3,enum=types.v1.IdentityProvider" json:"identity_provider,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *GetProfileResponse) Reset() {
@@ -128,9 +129,9 @@ func (x *GetProfileResponse) GetEmail() string {
 	return ""
 }
 
-func (x *GetProfileResponse) GetProfileImageUrl() string {
+func (x *GetProfileResponse) GetAvatarUrl() string {
 	if x != nil {
-		return x.ProfileImageUrl
+		return x.AvatarUrl
 	}
 	return ""
 }
@@ -142,19 +143,29 @@ func (x *GetProfileResponse) GetGrade() v1.UserGrade {
 	return v1.UserGrade(0)
 }
 
+func (x *GetProfileResponse) GetIdentityProvider() v1.IdentityProvider {
+	if x != nil {
+		return x.IdentityProvider
+	}
+	return v1.IdentityProvider(0)
+}
+
 var File_service_user_v1_service_proto protoreflect.FileDescriptor
 
 const file_service_user_v1_service_proto_rawDesc = "" +
 	"\n" +
-	"\x1dservice/user/v1/service.proto\x12\x0fservice.user.v1\x1a\x13types/v1/user.proto\"P\n" +
+	"\x1dservice/user/v1/service.proto\x12\x0fservice.user.v1\x1a\x13types/v1/user.proto\x1a types/v1/identity_provider.proto\"P\n" +
 	"\x11GetProfileRequest\x12!\n" +
 	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\x12\x18\n" +
-	"\asession\x18\x02 \x01(\tR\asession\"\x9d\x01\n" +
+	"\asession\x18\x02 \x01(\tR\asession\"\xd9\x01\n" +
 	"\x12GetProfileResponse\x12\x1a\n" +
 	"\busername\x18\x01 \x01(\tR\busername\x12\x14\n" +
-	"\x05email\x18\x02 \x01(\tR\x05email\x12*\n" +
-	"\x11profile_image_url\x18\x03 \x01(\tR\x0fprofileImageUrl\x12)\n" +
-	"\x05grade\x18\x04 \x01(\x0e2\x13.types.v1.UserGradeR\x05grade2f\n" +
+	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1d\n" +
+	"\n" +
+	"avatar_url\x18\x03 \x01(\tR\tavatarUrl\x12)\n" +
+	"\x05grade\x18\n" +
+	" \x01(\x0e2\x13.types.v1.UserGradeR\x05grade\x12G\n" +
+	"\x11identity_provider\x18\v \x01(\x0e2\x1a.types.v1.IdentityProviderR\x10identityProvider2f\n" +
 	"\vUserService\x12W\n" +
 	"\n" +
 	"GetProfile\x12\".service.user.v1.GetProfileRequest\x1a#.service.user.v1.GetProfileResponse\"\x00B<Z:github.com/gaesemo/tech-blog-api/go/service/user/v1;userv1b\x06proto3"
@@ -176,16 +187,18 @@ var file_service_user_v1_service_proto_goTypes = []any{
 	(*GetProfileRequest)(nil),  // 0: service.user.v1.GetProfileRequest
 	(*GetProfileResponse)(nil), // 1: service.user.v1.GetProfileResponse
 	(v1.UserGrade)(0),          // 2: types.v1.UserGrade
+	(v1.IdentityProvider)(0),   // 3: types.v1.IdentityProvider
 }
 var file_service_user_v1_service_proto_depIdxs = []int32{
 	2, // 0: service.user.v1.GetProfileResponse.grade:type_name -> types.v1.UserGrade
-	0, // 1: service.user.v1.UserService.GetProfile:input_type -> service.user.v1.GetProfileRequest
-	1, // 2: service.user.v1.UserService.GetProfile:output_type -> service.user.v1.GetProfileResponse
-	2, // [2:3] is the sub-list for method output_type
-	1, // [1:2] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	3, // 1: service.user.v1.GetProfileResponse.identity_provider:type_name -> types.v1.IdentityProvider
+	0, // 2: service.user.v1.UserService.GetProfile:input_type -> service.user.v1.GetProfileRequest
+	1, // 3: service.user.v1.UserService.GetProfile:output_type -> service.user.v1.GetProfileResponse
+	3, // [3:4] is the sub-list for method output_type
+	2, // [2:3] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_service_user_v1_service_proto_init() }

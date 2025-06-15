@@ -4,6 +4,7 @@ package service.user.v1;
 option go_package = "github.com/gaesemo/tech-blog-api/go/service/user/v1;userv1";
 
 import "types/v1/user.proto";
+import "types/v1/identity_provider.proto";
 
 service UserService {
     rpc GetProfile(GetProfileRequest) returns (GetProfileResponse) {}
@@ -17,6 +18,8 @@ message GetProfileRequest {
 message GetProfileResponse {
     string username = 1;
     string email = 2;
-    string profile_image_url = 3;
-    types.v1.UserGrade grade = 4;
+    string avatar_url = 3;
+
+    types.v1.UserGrade grade = 10;
+    types.v1.IdentityProvider identity_provider = 11;
 }

@@ -4,6 +4,7 @@ package types.v1;
 option go_package = "github.com/gaesemo/tech-blog-api/go/types/v1;typesv1";
 
 import "google/protobuf/timestamp.proto";
+import "types/v1/identity_provider.proto";
 
 enum UserGrade {
     USER_GRADE_UNSPECIFIED = 0;
@@ -15,10 +16,12 @@ message User {
     uint64 id = 1;
     string username = 2;
     string email = 3; 
-    string profile_image_url = 4;
+    string avatar_url = 4;
     string about_me = 5;
     
     UserGrade grade = 10; 
+    types.v1.IdentityProvider identity_provider = 11;
+    
     google.protobuf.Timestamp created_at = 100;
     google.protobuf.Timestamp updated_at = 101;
 }

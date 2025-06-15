@@ -2,24 +2,26 @@
 // @generated from file service/auth/v1/service.proto (package service.auth.v1, syntax proto3)
 /* eslint-disable */
 
-import type { GenEnum, GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
-import { enumDesc, fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
+import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
+import { fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
+import type { IdentityProvider } from "../../../types/v1/identity_provider_pb";
+import { file_types_v1_identity_provider } from "../../../types/v1/identity_provider_pb";
 import type { Message } from "@bufbuild/protobuf";
 
 /**
  * Describes the file service/auth/v1/service.proto.
  */
 export const file_service_auth_v1_service: GenFile = /*@__PURE__*/
-  fileDesc("Ch1zZXJ2aWNlL2F1dGgvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS5hdXRoLnYxIl8KEUdldEF1dGhVUkxSZXF1ZXN0EjQKDWF1dGhfcHJvdmlkZXIYASABKA4yHS5zZXJ2aWNlLmF1dGgudjEuQXV0aFByb3ZpZGVyEhQKDGNhbGxiYWNrX3VybBgCIAEoCSImChJHZXRBdXRoVVJMUmVzcG9uc2USEAoIYXV0aF91cmwYASABKAkiVwoMTG9naW5SZXF1ZXN0EjQKDWF1dGhfcHJvdmlkZXIYASABKA4yHS5zZXJ2aWNlLmF1dGgudjEuQXV0aFByb3ZpZGVyEhEKCWF1dGhfY29kZRgCIAEoCSJOCg1Mb2dpblJlc3BvbnNlEhQKDGFjY2Vzc190b2tlbhgBIAEoCRISCgpzZXNzaW9uX2lkGAIgASgJEhMKC2lzX25ld191c2VyGAMgASgIIiMKDUxvZ291dFJlcXVlc3QSEgoKc2Vzc2lvbl9pZBgBIAEoCSIhCg5Mb2dvdXRSZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIKkcKDEF1dGhQcm92aWRlchIdChlBVVRIX1BST1ZJREVSX1VOU1BFQ0lGSUVEEAASGAoUQVVUSF9QUk9WSURFUl9HSVRIVUIQATL9AQoLQXV0aFNlcnZpY2USVwoKR2V0QXV0aFVSTBIiLnNlcnZpY2UuYXV0aC52MS5HZXRBdXRoVVJMUmVxdWVzdBojLnNlcnZpY2UuYXV0aC52MS5HZXRBdXRoVVJMUmVzcG9uc2UiABJICgVMb2dpbhIdLnNlcnZpY2UuYXV0aC52MS5Mb2dpblJlcXVlc3QaHi5zZXJ2aWNlLmF1dGgudjEuTG9naW5SZXNwb25zZSIAEksKBkxvZ291dBIeLnNlcnZpY2UuYXV0aC52MS5Mb2dvdXRSZXF1ZXN0Gh8uc2VydmljZS5hdXRoLnYxLkxvZ291dFJlc3BvbnNlIgBCPFo6Z2l0aHViLmNvbS9nYWVzZW1vL3RlY2gtYmxvZy1hcGkvZ28vc2VydmljZS9hdXRoL3YxO2F1dGh2MWIGcHJvdG8z");
+  fileDesc("Ch1zZXJ2aWNlL2F1dGgvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS5hdXRoLnYxImAKEUdldEF1dGhVUkxSZXF1ZXN0EjUKEWlkZW50aXR5X3Byb3ZpZGVyGAEgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlchIUCgxjYWxsYmFja191cmwYAiABKAkiJgoSR2V0QXV0aFVSTFJlc3BvbnNlEhAKCGF1dGhfdXJsGAEgASgJIlgKDExvZ2luUmVxdWVzdBI1ChFpZGVudGl0eV9wcm92aWRlchgBIAEoDjIaLnR5cGVzLnYxLklkZW50aXR5UHJvdmlkZXISEQoJYXV0aF9jb2RlGAIgASgJIk4KDUxvZ2luUmVzcG9uc2USFAoMYWNjZXNzX3Rva2VuGAEgASgJEhIKCnNlc3Npb25faWQYAiABKAkSEwoLaXNfbmV3X3VzZXIYAyABKAgiIwoNTG9nb3V0UmVxdWVzdBISCgpzZXNzaW9uX2lkGAEgASgJIiEKDkxvZ291dFJlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgy/QEKC0F1dGhTZXJ2aWNlElcKCkdldEF1dGhVUkwSIi5zZXJ2aWNlLmF1dGgudjEuR2V0QXV0aFVSTFJlcXVlc3QaIy5zZXJ2aWNlLmF1dGgudjEuR2V0QXV0aFVSTFJlc3BvbnNlIgASSAoFTG9naW4SHS5zZXJ2aWNlLmF1dGgudjEuTG9naW5SZXF1ZXN0Gh4uc2VydmljZS5hdXRoLnYxLkxvZ2luUmVzcG9uc2UiABJLCgZMb2dvdXQSHi5zZXJ2aWNlLmF1dGgudjEuTG9nb3V0UmVxdWVzdBofLnNlcnZpY2UuYXV0aC52MS5Mb2dvdXRSZXNwb25zZSIAQjxaOmdpdGh1Yi5jb20vZ2Flc2Vtby90ZWNoLWJsb2ctYXBpL2dvL3NlcnZpY2UvYXV0aC92MTthdXRodjFiBnByb3RvMw", [file_types_v1_identity_provider]);
 
 /**
  * @generated from message service.auth.v1.GetAuthURLRequest
  */
 export type GetAuthURLRequest = Message<"service.auth.v1.GetAuthURLRequest"> & {
   /**
-   * @generated from field: service.auth.v1.AuthProvider auth_provider = 1;
+   * @generated from field: types.v1.IdentityProvider identity_provider = 1;
    */
-  authProvider: AuthProvider;
+  identityProvider: IdentityProvider;
 
   /**
    * @generated from field: string callback_url = 2;
@@ -56,9 +58,9 @@ export const GetAuthURLResponseSchema: GenMessage<GetAuthURLResponse> = /*@__PUR
  */
 export type LoginRequest = Message<"service.auth.v1.LoginRequest"> & {
   /**
-   * @generated from field: service.auth.v1.AuthProvider auth_provider = 1;
+   * @generated from field: types.v1.IdentityProvider identity_provider = 1;
    */
-  authProvider: AuthProvider;
+  identityProvider: IdentityProvider;
 
   /**
    * @generated from field: string auth_code = 2;
@@ -137,27 +139,6 @@ export type LogoutResponse = Message<"service.auth.v1.LogoutResponse"> & {
  */
 export const LogoutResponseSchema: GenMessage<LogoutResponse> = /*@__PURE__*/
   messageDesc(file_service_auth_v1_service, 5);
-
-/**
- * @generated from enum service.auth.v1.AuthProvider
- */
-export enum AuthProvider {
-  /**
-   * @generated from enum value: AUTH_PROVIDER_UNSPECIFIED = 0;
-   */
-  UNSPECIFIED = 0,
-
-  /**
-   * @generated from enum value: AUTH_PROVIDER_GITHUB = 1;
-   */
-  GITHUB = 1,
-}
-
-/**
- * Describes the enum service.auth.v1.AuthProvider.
- */
-export const AuthProviderSchema: GenEnum<AuthProvider> = /*@__PURE__*/
-  enumDesc(file_service_auth_v1_service, 0);
 
 /**
  * @generated from service service.auth.v1.AuthService

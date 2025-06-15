@@ -6,13 +6,15 @@ import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegen
 import { fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
 import type { UserGrade } from "../../../types/v1/user_pb";
 import { file_types_v1_user } from "../../../types/v1/user_pb";
+import type { IdentityProvider } from "../../../types/v1/identity_provider_pb";
+import { file_types_v1_identity_provider } from "../../../types/v1/identity_provider_pb";
 import type { Message } from "@bufbuild/protobuf";
 
 /**
  * Describes the file service/user/v1/service.proto.
  */
 export const file_service_user_v1_service: GenFile = /*@__PURE__*/
-  fileDesc("Ch1zZXJ2aWNlL3VzZXIvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS51c2VyLnYxIjoKEUdldFByb2ZpbGVSZXF1ZXN0EhQKDGFjY2Vzc190b2tlbhgBIAEoCRIPCgdzZXNzaW9uGAIgASgJInQKEkdldFByb2ZpbGVSZXNwb25zZRIQCgh1c2VybmFtZRgBIAEoCRINCgVlbWFpbBgCIAEoCRIZChFwcm9maWxlX2ltYWdlX3VybBgDIAEoCRIiCgVncmFkZRgEIAEoDjITLnR5cGVzLnYxLlVzZXJHcmFkZTJmCgtVc2VyU2VydmljZRJXCgpHZXRQcm9maWxlEiIuc2VydmljZS51c2VyLnYxLkdldFByb2ZpbGVSZXF1ZXN0GiMuc2VydmljZS51c2VyLnYxLkdldFByb2ZpbGVSZXNwb25zZSIAQjxaOmdpdGh1Yi5jb20vZ2Flc2Vtby90ZWNoLWJsb2ctYXBpL2dvL3NlcnZpY2UvdXNlci92MTt1c2VydjFiBnByb3RvMw", [file_types_v1_user]);
+  fileDesc("Ch1zZXJ2aWNlL3VzZXIvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS51c2VyLnYxIjoKEUdldFByb2ZpbGVSZXF1ZXN0EhQKDGFjY2Vzc190b2tlbhgBIAEoCRIPCgdzZXNzaW9uGAIgASgJIqQBChJHZXRQcm9maWxlUmVzcG9uc2USEAoIdXNlcm5hbWUYASABKAkSDQoFZW1haWwYAiABKAkSEgoKYXZhdGFyX3VybBgDIAEoCRIiCgVncmFkZRgKIAEoDjITLnR5cGVzLnYxLlVzZXJHcmFkZRI1ChFpZGVudGl0eV9wcm92aWRlchgLIAEoDjIaLnR5cGVzLnYxLklkZW50aXR5UHJvdmlkZXIyZgoLVXNlclNlcnZpY2USVwoKR2V0UHJvZmlsZRIiLnNlcnZpY2UudXNlci52MS5HZXRQcm9maWxlUmVxdWVzdBojLnNlcnZpY2UudXNlci52MS5HZXRQcm9maWxlUmVzcG9uc2UiAEI8WjpnaXRodWIuY29tL2dhZXNlbW8vdGVjaC1ibG9nLWFwaS9nby9zZXJ2aWNlL3VzZXIvdjE7dXNlcnYxYgZwcm90bzM", [file_types_v1_user, file_types_v1_identity_provider]);
 
 /**
  * @generated from message service.user.v1.GetProfileRequest
@@ -51,14 +53,19 @@ export type GetProfileResponse = Message<"service.user.v1.GetProfileResponse"> &
   email: string;
 
   /**
-   * @generated from field: string profile_image_url = 3;
+   * @generated from field: string avatar_url = 3;
    */
-  profileImageUrl: string;
+  avatarUrl: string;
 
   /**
-   * @generated from field: types.v1.UserGrade grade = 4;
+   * @generated from field: types.v1.UserGrade grade = 10;
    */
   grade: UserGrade;
+
+  /**
+   * @generated from field: types.v1.IdentityProvider identity_provider = 11;
+   */
+  identityProvider: IdentityProvider;
 };
 
 /**

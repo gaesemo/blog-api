@@ -72,17 +72,18 @@ func (UserGrade) EnumDescriptor() ([]byte, []int) {
 }
 
 type User struct {
-	state           protoimpl.MessageState `protogen:"open.v1"`
-	Id              uint64                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Username        string                 `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
-	Email           string                 `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
-	ProfileImageUrl string                 `protobuf:"bytes,4,opt,name=profile_image_url,json=profileImageUrl,proto3" json:"profile_image_url,omitempty"`
-	AboutMe         string                 `protobuf:"bytes,5,opt,name=about_me,json=aboutMe,proto3" json:"about_me,omitempty"`
-	Grade           UserGrade              `protobuf:"varint,10,opt,name=grade,proto3,enum=types.v1.UserGrade" json:"grade,omitempty"`
-	CreatedAt       *timestamppb.Timestamp `protobuf:"bytes,100,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt       *timestamppb.Timestamp `protobuf:"bytes,101,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Id               uint64                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Username         string                 `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
+	Email            string                 `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
+	AvatarUrl        string                 `protobuf:"bytes,4,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
+	AboutMe          string                 `protobuf:"bytes,5,opt,name=about_me,json=aboutMe,proto3" json:"about_me,omitempty"`
+	Grade            UserGrade              `protobuf:"varint,10,opt,name=grade,proto3,enum=types.v1.UserGrade" json:"grade,omitempty"`
+	IdentityProvider IdentityProvider       `protobuf:"varint,11,opt,name=identity_provider,json=identityProvider,proto3,enum=types.v1.IdentityProvider" json:"identity_provider,omitempty"`
+	CreatedAt        *timestamppb.Timestamp `protobuf:"bytes,100,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt        *timestamppb.Timestamp `protobuf:"bytes,101,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *User) Reset() {
@@ -136,9 +137,9 @@ func (x *User) GetEmail() string {
 	return ""
 }
 
-func (x *User) GetProfileImageUrl() string {
+func (x *User) GetAvatarUrl() string {
 	if x != nil {
-		return x.ProfileImageUrl
+		return x.AvatarUrl
 	}
 	return ""
 }
@@ -155,6 +156,13 @@ func (x *User) GetGrade() UserGrade {
 		return x.Grade
 	}
 	return UserGrade_USER_GRADE_UNSPECIFIED
+}
+
+func (x *User) GetIdentityProvider() IdentityProvider {
+	if x != nil {
+		return x.IdentityProvider
+	}
+	return IdentityProvider_IDENTITY_PROVIDER_UNSPECIFIED
 }
 
 func (x *User) GetCreatedAt() *timestamppb.Timestamp {
@@ -175,15 +183,17 @@ var File_types_v1_user_proto protoreflect.FileDescriptor
 
 const file_types_v1_user_proto_rawDesc = "" +
 	"\n" +
-	"\x13types/v1/user.proto\x12\btypes.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb0\x02\n" +
+	"\x13types/v1/user.proto\x12\btypes.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a types/v1/identity_provider.proto\"\xec\x02\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x04R\x02id\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x14\n" +
-	"\x05email\x18\x03 \x01(\tR\x05email\x12*\n" +
-	"\x11profile_image_url\x18\x04 \x01(\tR\x0fprofileImageUrl\x12\x19\n" +
+	"\x05email\x18\x03 \x01(\tR\x05email\x12\x1d\n" +
+	"\n" +
+	"avatar_url\x18\x04 \x01(\tR\tavatarUrl\x12\x19\n" +
 	"\babout_me\x18\x05 \x01(\tR\aaboutMe\x12)\n" +
 	"\x05grade\x18\n" +
-	" \x01(\x0e2\x13.types.v1.UserGradeR\x05grade\x129\n" +
+	" \x01(\x0e2\x13.types.v1.UserGradeR\x05grade\x12G\n" +
+	"\x11identity_provider\x18\v \x01(\x0e2\x1a.types.v1.IdentityProviderR\x10identityProvider\x129\n" +
 	"\n" +
 	"created_at\x18d \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
@@ -210,17 +220,19 @@ var file_types_v1_user_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_types_v1_user_proto_goTypes = []any{
 	(UserGrade)(0),                // 0: types.v1.UserGrade
 	(*User)(nil),                  // 1: types.v1.User
-	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(IdentityProvider)(0),         // 2: types.v1.IdentityProvider
+	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_types_v1_user_proto_depIdxs = []int32{
 	0, // 0: types.v1.User.grade:type_name -> types.v1.UserGrade
-	2, // 1: types.v1.User.created_at:type_name -> google.protobuf.Timestamp
-	2, // 2: types.v1.User.updated_at:type_name -> google.protobuf.Timestamp
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	2, // 1: types.v1.User.identity_provider:type_name -> types.v1.IdentityProvider
+	3, // 2: types.v1.User.created_at:type_name -> google.protobuf.Timestamp
+	3, // 3: types.v1.User.updated_at:type_name -> google.protobuf.Timestamp
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_types_v1_user_proto_init() }
@@ -228,6 +240,7 @@ func file_types_v1_user_proto_init() {
 	if File_types_v1_user_proto != nil {
 		return
 	}
+	file_types_v1_identity_provider_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -3,19 +3,16 @@ syntax = "proto3";
 package service.auth.v1;
 option go_package = "github.com/gaesemo/tech-blog-api/go/service/auth/v1;authv1";
 
+import "types/v1/identity_provider.proto";
+
 service AuthService {
     rpc GetAuthURL(GetAuthURLRequest) returns (GetAuthURLResponse) {}
     rpc Login(LoginRequest) returns (LoginResponse) {}
     rpc Logout(LogoutRequest) returns (LogoutResponse) {}
 }
 
-enum AuthProvider {
-    AUTH_PROVIDER_UNSPECIFIED = 0;
-    AUTH_PROVIDER_GITHUB = 1;
-}
-
 message GetAuthURLRequest {
-    AuthProvider auth_provider = 1;
+    types.v1.IdentityProvider identity_provider = 1;
     string callback_url = 2;
 }
 
@@ -24,7 +21,7 @@ message GetAuthURLResponse {
 }
 
 message LoginRequest {
-    AuthProvider auth_provider = 1;
+    types.v1.IdentityProvider identity_provider = 1;
     string auth_code = 2;
 }
 

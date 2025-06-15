@@ -6,13 +6,15 @@ import type { GenEnum, GenFile, GenMessage } from "@bufbuild/protobuf/codegenv2"
 import { enumDesc, fileDesc, messageDesc } from "@bufbuild/protobuf/codegenv2";
 import type { Timestamp } from "@bufbuild/protobuf/wkt";
 import { file_google_protobuf_timestamp } from "@bufbuild/protobuf/wkt";
+import type { IdentityProvider } from "./identity_provider_pb";
+import { file_types_v1_identity_provider } from "./identity_provider_pb";
 import type { Message } from "@bufbuild/protobuf";
 
 /**
  * Describes the file types/v1/user.proto.
  */
 export const file_types_v1_user: GenFile = /*@__PURE__*/
-  fileDesc("ChN0eXBlcy92MS91c2VyLnByb3RvEgh0eXBlcy52MSLkAQoEVXNlchIKCgJpZBgBIAEoBBIQCgh1c2VybmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRIZChFwcm9maWxlX2ltYWdlX3VybBgEIAEoCRIQCghhYm91dF9tZRgFIAEoCRIiCgVncmFkZRgKIAEoDjITLnR5cGVzLnYxLlVzZXJHcmFkZRIuCgpjcmVhdGVkX2F0GGQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GGUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCpTCglVc2VyR3JhZGUSGgoWVVNFUl9HUkFERV9VTlNQRUNJRklFRBAAEhMKD1VTRVJfR1JBREVfTk9ORRABEhUKEVVTRVJfR1JBREVfTUVNQkVSEAJCNlo0Z2l0aHViLmNvbS9nYWVzZW1vL3RlY2gtYmxvZy1hcGkvZ28vdHlwZXMvdjE7dHlwZXN2MWIGcHJvdG8z", [file_google_protobuf_timestamp]);
+  fileDesc("ChN0eXBlcy92MS91c2VyLnByb3RvEgh0eXBlcy52MSKUAgoEVXNlchIKCgJpZBgBIAEoBBIQCgh1c2VybmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRISCgphdmF0YXJfdXJsGAQgASgJEhAKCGFib3V0X21lGAUgASgJEiIKBWdyYWRlGAogASgOMhMudHlwZXMudjEuVXNlckdyYWRlEjUKEWlkZW50aXR5X3Byb3ZpZGVyGAsgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlchIuCgpjcmVhdGVkX2F0GGQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GGUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCpTCglVc2VyR3JhZGUSGgoWVVNFUl9HUkFERV9VTlNQRUNJRklFRBAAEhMKD1VTRVJfR1JBREVfTk9ORRABEhUKEVVTRVJfR1JBREVfTUVNQkVSEAJCNlo0Z2l0aHViLmNvbS9nYWVzZW1vL3RlY2gtYmxvZy1hcGkvZ28vdHlwZXMvdjE7dHlwZXN2MWIGcHJvdG8z", [file_google_protobuf_timestamp, file_types_v1_identity_provider]);
 
 /**
  * @generated from message types.v1.User
@@ -34,9 +36,9 @@ export type User = Message<"types.v1.User"> & {
   email: string;
 
   /**
-   * @generated from field: string profile_image_url = 4;
+   * @generated from field: string avatar_url = 4;
    */
-  profileImageUrl: string;
+  avatarUrl: string;
 
   /**
    * @generated from field: string about_me = 5;
@@ -47,6 +49,11 @@ export type User = Message<"types.v1.User"> & {
    * @generated from field: types.v1.UserGrade grade = 10;
    */
   grade: UserGrade;
+
+  /**
+   * @generated from field: types.v1.IdentityProvider identity_provider = 11;
+   */
+  identityProvider: IdentityProvider;
 
   /**
    * @generated from field: google.protobuf.Timestamp created_at = 100;
