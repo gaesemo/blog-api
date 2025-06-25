@@ -7,7 +7,7 @@
 package authv1
 
 import (
-	v1 "github.com/gaesemo/tech-blog-api/go/types/v1"
+	v1 "github.com/gaesemo/blog-api/go/types/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -216,7 +216,7 @@ const file_service_auth_v1_service_proto_rawDesc = "" +
 	"\vAuthService\x12W\n" +
 	"\n" +
 	"GetAuthURL\x12\".service.auth.v1.GetAuthURLRequest\x1a#.service.auth.v1.GetAuthURLResponse\"\x00\x12K\n" +
-	"\x06Logout\x12\x1e.service.auth.v1.LogoutRequest\x1a\x1f.service.auth.v1.LogoutResponse\"\x00B<Z:github.com/gaesemo/tech-blog-api/go/service/auth/v1;authv1b\x06proto3"
+	"\x06Logout\x12\x1e.service.auth.v1.LogoutRequest\x1a\x1f.service.auth.v1.LogoutResponse\"\x00B7Z5github.com/gaesemo/blog-api/go/service/auth/v1;authv1b\x06proto3"
 
 var (
 	file_service_auth_v1_service_proto_rawDescOnce sync.Once

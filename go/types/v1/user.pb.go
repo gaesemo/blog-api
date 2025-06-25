@@ -138,7 +138,7 @@ const file_types_v1_user_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18d \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"updated_at\x18e \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAtB6Z4github.com/gaesemo/tech-blog-api/go/types/v1;typesv1b\x06proto3"
+	"updated_at\x18e \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAtB1Z/github.com/gaesemo/blog-api/go/types/v1;typesv1b\x06proto3"
 
 var (
 	file_types_v1_user_proto_rawDescOnce sync.Once

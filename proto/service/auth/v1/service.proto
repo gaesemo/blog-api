@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package service.auth.v1;
-option go_package = "github.com/gaesemo/tech-blog-api/go/service/auth/v1;authv1";
+option go_package = "github.com/gaesemo/blog-api/go/service/auth/v1;authv1";
 
 import "types/v1/identity_provider.proto";
 

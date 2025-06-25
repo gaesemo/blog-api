@@ -1,4 +1,4 @@
-module github.com/gaesemo/tech-blog-api/go
+module github.com/gaesemo/blog-api/go
 
 go 1.23.2
 

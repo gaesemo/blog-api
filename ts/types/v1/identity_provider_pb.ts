@@ -9,7 +9,7 @@ import { enumDesc, fileDesc } from "@bufbuild/protobuf/codegenv2";
  * Describes the file types/v1/identity_provider.proto.
  */
 export const file_types_v1_identity_provider: GenFile = /*@__PURE__*/
-  fileDesc("CiB0eXBlcy92MS9pZGVudGl0eV9wcm92aWRlci5wcm90bxIIdHlwZXMudjEqUwoQSWRlbnRpdHlQcm92aWRlchIhCh1JREVOVElUWV9QUk9WSURFUl9VTlNQRUNJRklFRBAAEhwKGElERU5USVRZX1BST1ZJREVSX0dJVEhVQhABQjZaNGdpdGh1Yi5jb20vZ2Flc2Vtby90ZWNoLWJsb2ctYXBpL2dvL3R5cGVzL3YxO3R5cGVzdjFiBnByb3RvMw");
+  fileDesc("CiB0eXBlcy92MS9pZGVudGl0eV9wcm92aWRlci5wcm90bxIIdHlwZXMudjEqUwoQSWRlbnRpdHlQcm92aWRlchIhCh1JREVOVElUWV9QUk9WSURFUl9VTlNQRUNJRklFRBAAEhwKGElERU5USVRZX1BST1ZJREVSX0dJVEhVQhABQjFaL2dpdGh1Yi5jb20vZ2Flc2Vtby9ibG9nLWFwaS9nby90eXBlcy92MTt0eXBlc3YxYgZwcm90bzM");
 
 /**
  * @generated from enum types.v1.IdentityProvider

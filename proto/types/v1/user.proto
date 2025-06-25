@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package types.v1;
-option go_package = "github.com/gaesemo/tech-blog-api/go/types/v1;typesv1";
+option go_package = "github.com/gaesemo/blog-api/go/types/v1;typesv1";
 
 import "google/protobuf/timestamp.proto";
 import "types/v1/identity_provider.proto";

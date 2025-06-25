@@ -74,7 +74,7 @@ const file_types_v1_identity_provider_proto_rawDesc = "" +
 	" types/v1/identity_provider.proto\x12\btypes.v1*S\n" +
 	"\x10IdentityProvider\x12!\n" +
 	"\x1dIDENTITY_PROVIDER_UNSPECIFIED\x10\x00\x12\x1c\n" +
-	"\x18IDENTITY_PROVIDER_GITHUB\x10\x01B6Z4github.com/gaesemo/tech-blog-api/go/types/v1;typesv1b\x06proto3"
+	"\x18IDENTITY_PROVIDER_GITHUB\x10\x01B1Z/github.com/gaesemo/blog-api/go/types/v1;typesv1b\x06proto3"
 
 var (
 	file_types_v1_identity_provider_proto_rawDescOnce sync.Once
