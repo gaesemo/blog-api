@@ -3,17 +3,22 @@ syntax = "proto3";
 package service.user.v1;
 option go_package = "github.com/gaesemo/tech-blog-api/go/service/user/v1;userv1";
 
+import "types/v1/user.proto";
+
 service UserService {
-    rpc GetProfile(GetProfileRequest) returns (GetProfileResponse) {}
+    rpc GetMe(GetMeRequest) returns (GetMeResponse) {}
+    rpc GetUserById(GetUserByIdRequest) returns (GetUserByIdResponse) {}
 }
 
-message GetProfileRequest {
-    string access_token = 1;
-    string session = 2;
+message GetMeRequest {}
+message GetMeResponse {
+    types.v1.User user = 1;
 }
 
-message GetProfileResponse {
-    string username = 1;
-    string email = 2;
-    string avatar_url = 3;
+message GetUserByIdRequest {
+    // required
+    int64 id = 1;
+}
+message GetUserByIdResponse {
+    types.v1.User user = 1;
 }

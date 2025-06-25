@@ -26,7 +26,7 @@ type GetAuthURLRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// requried
 	IdentityProvider v1.IdentityProvider `protobuf:"varint,1,opt,name=identity_provider,json=identityProvider,proto3,enum=types.v1.IdentityProvider" json:"identity_provider,omitempty"`
-	RedirectUri      *string             `protobuf:"bytes,2,opt,name=redirect_uri,json=redirectUri,proto3,oneof" json:"redirect_uri,omitempty"`
+	RedirectUrl      *string             `protobuf:"bytes,2,opt,name=redirect_url,json=redirectUrl,proto3,oneof" json:"redirect_url,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -68,9 +68,9 @@ func (x *GetAuthURLRequest) GetIdentityProvider() v1.IdentityProvider {
 	return v1.IdentityProvider(0)
 }
 
-func (x *GetAuthURLRequest) GetRedirectUri() string {
-	if x != nil && x.RedirectUri != nil {
-		return *x.RedirectUri
+func (x *GetAuthURLRequest) GetRedirectUrl() string {
+	if x != nil && x.RedirectUrl != nil {
+		return *x.RedirectUrl
 	}
 	return ""
 }
@@ -119,128 +119,15 @@ func (x *GetAuthURLResponse) GetAuthUrl() string {
 	return ""
 }
 
-type LoginRequest struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	IdentityProvider v1.IdentityProvider    `protobuf:"varint,1,opt,name=identity_provider,json=identityProvider,proto3,enum=types.v1.IdentityProvider" json:"identity_provider,omitempty"`
-	AuthCode         string                 `protobuf:"bytes,2,opt,name=auth_code,json=authCode,proto3" json:"auth_code,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-func (x *LoginRequest) Reset() {
-	*x = LoginRequest{}
-	mi := &file_service_auth_v1_service_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *LoginRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*LoginRequest) ProtoMessage() {}
-
-func (x *LoginRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_service_auth_v1_service_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use LoginRequest.ProtoReflect.Descriptor instead.
-func (*LoginRequest) Descriptor() ([]byte, []int) {
-	return file_service_auth_v1_service_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *LoginRequest) GetIdentityProvider() v1.IdentityProvider {
-	if x != nil {
-		return x.IdentityProvider
-	}
-	return v1.IdentityProvider(0)
-}
-
-func (x *LoginRequest) GetAuthCode() string {
-	if x != nil {
-		return x.AuthCode
-	}
-	return ""
-}
-
-type LoginResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AccessToken   string                 `protobuf:"bytes,1,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"` // jwt
-	SessionId     string                 `protobuf:"bytes,2,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`       // uuid
-	IsNewUser     bool                   `protobuf:"varint,3,opt,name=is_new_user,json=isNewUser,proto3" json:"is_new_user,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *LoginResponse) Reset() {
-	*x = LoginResponse{}
-	mi := &file_service_auth_v1_service_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *LoginResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*LoginResponse) ProtoMessage() {}
-
-func (x *LoginResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_service_auth_v1_service_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use LoginResponse.ProtoReflect.Descriptor instead.
-func (*LoginResponse) Descriptor() ([]byte, []int) {
-	return file_service_auth_v1_service_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *LoginResponse) GetAccessToken() string {
-	if x != nil {
-		return x.AccessToken
-	}
-	return ""
-}
-
-func (x *LoginResponse) GetSessionId() string {
-	if x != nil {
-		return x.SessionId
-	}
-	return ""
-}
-
-func (x *LoginResponse) GetIsNewUser() bool {
-	if x != nil {
-		return x.IsNewUser
-	}
-	return false
-}
-
 type LogoutRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	SessionId     string                 `protobuf:"bytes,1,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *LogoutRequest) Reset() {
 	*x = LogoutRequest{}
-	mi := &file_service_auth_v1_service_proto_msgTypes[4]
+	mi := &file_service_auth_v1_service_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -252,7 +139,7 @@ func (x *LogoutRequest) String() string {
 func (*LogoutRequest) ProtoMessage() {}
 
 func (x *LogoutRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_service_auth_v1_service_proto_msgTypes[4]
+	mi := &file_service_auth_v1_service_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -265,14 +152,7 @@ func (x *LogoutRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LogoutRequest.ProtoReflect.Descriptor instead.
 func (*LogoutRequest) Descriptor() ([]byte, []int) {
-	return file_service_auth_v1_service_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *LogoutRequest) GetSessionId() string {
-	if x != nil {
-		return x.SessionId
-	}
-	return ""
+	return file_service_auth_v1_service_proto_rawDescGZIP(), []int{2}
 }
 
 type LogoutResponse struct {
@@ -284,7 +164,7 @@ type LogoutResponse struct {
 
 func (x *LogoutResponse) Reset() {
 	*x = LogoutResponse{}
-	mi := &file_service_auth_v1_service_proto_msgTypes[5]
+	mi := &file_service_auth_v1_service_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -296,7 +176,7 @@ func (x *LogoutResponse) String() string {
 func (*LogoutResponse) ProtoMessage() {}
 
 func (x *LogoutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_service_auth_v1_service_proto_msgTypes[5]
+	mi := &file_service_auth_v1_service_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -309,7 +189,7 @@ func (x *LogoutResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LogoutResponse.ProtoReflect.Descriptor instead.
 func (*LogoutResponse) Descriptor() ([]byte, []int) {
-	return file_service_auth_v1_service_proto_rawDescGZIP(), []int{5}
+	return file_service_auth_v1_service_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *LogoutResponse) GetSuccess() bool {
@@ -326,27 +206,16 @@ const file_service_auth_v1_service_proto_rawDesc = "" +
 	"\x1dservice/auth/v1/service.proto\x12\x0fservice.auth.v1\x1a types/v1/identity_provider.proto\"\x95\x01\n" +
 	"\x11GetAuthURLRequest\x12G\n" +
 	"\x11identity_provider\x18\x01 \x01(\x0e2\x1a.types.v1.IdentityProviderR\x10identityProvider\x12&\n" +
-	"\fredirect_uri\x18\x02 \x01(\tH\x00R\vredirectUri\x88\x01\x01B\x0f\n" +
-	"\r_redirect_uri\"/\n" +
+	"\fredirect_url\x18\x02 \x01(\tH\x00R\vredirectUrl\x88\x01\x01B\x0f\n" +
+	"\r_redirect_url\"/\n" +
 	"\x12GetAuthURLResponse\x12\x19\n" +
-	"\bauth_url\x18\x01 \x01(\tR\aauthUrl\"t\n" +
-	"\fLoginRequest\x12G\n" +
-	"\x11identity_provider\x18\x01 \x01(\x0e2\x1a.types.v1.IdentityProviderR\x10identityProvider\x12\x1b\n" +
-	"\tauth_code\x18\x02 \x01(\tR\bauthCode\"q\n" +
-	"\rLoginResponse\x12!\n" +
-	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\x12\x1d\n" +
-	"\n" +
-	"session_id\x18\x02 \x01(\tR\tsessionId\x12\x1e\n" +
-	"\vis_new_user\x18\x03 \x01(\bR\tisNewUser\".\n" +
-	"\rLogoutRequest\x12\x1d\n" +
-	"\n" +
-	"session_id\x18\x01 \x01(\tR\tsessionId\"*\n" +
+	"\bauth_url\x18\x01 \x01(\tR\aauthUrl\"\x0f\n" +
+	"\rLogoutRequest\"*\n" +
 	"\x0eLogoutResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess2\xfd\x01\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess2\xb3\x01\n" +
 	"\vAuthService\x12W\n" +
 	"\n" +
-	"GetAuthURL\x12\".service.auth.v1.GetAuthURLRequest\x1a#.service.auth.v1.GetAuthURLResponse\"\x00\x12H\n" +
-	"\x05Login\x12\x1d.service.auth.v1.LoginRequest\x1a\x1e.service.auth.v1.LoginResponse\"\x00\x12K\n" +
+	"GetAuthURL\x12\".service.auth.v1.GetAuthURLRequest\x1a#.service.auth.v1.GetAuthURLResponse\"\x00\x12K\n" +
 	"\x06Logout\x12\x1e.service.auth.v1.LogoutRequest\x1a\x1f.service.auth.v1.LogoutResponse\"\x00B<Z:github.com/gaesemo/tech-blog-api/go/service/auth/v1;authv1b\x06proto3"
 
 var (
@@ -361,30 +230,25 @@ func file_service_auth_v1_service_proto_rawDescGZIP() []byte {
 	return file_service_auth_v1_service_proto_rawDescData
 }
 
-var file_service_auth_v1_service_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_service_auth_v1_service_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_service_auth_v1_service_proto_goTypes = []any{
 	(*GetAuthURLRequest)(nil),  // 0: service.auth.v1.GetAuthURLRequest
 	(*GetAuthURLResponse)(nil), // 1: service.auth.v1.GetAuthURLResponse
-	(*LoginRequest)(nil),       // 2: service.auth.v1.LoginRequest
-	(*LoginResponse)(nil),      // 3: service.auth.v1.LoginResponse
-	(*LogoutRequest)(nil),      // 4: service.auth.v1.LogoutRequest
-	(*LogoutResponse)(nil),     // 5: service.auth.v1.LogoutResponse
-	(v1.IdentityProvider)(0),   // 6: types.v1.IdentityProvider
+	(*LogoutRequest)(nil),      // 2: service.auth.v1.LogoutRequest
+	(*LogoutResponse)(nil),     // 3: service.auth.v1.LogoutResponse
+	(v1.IdentityProvider)(0),   // 4: types.v1.IdentityProvider
 }
 var file_service_auth_v1_service_proto_depIdxs = []int32{
-	6, // 0: service.auth.v1.GetAuthURLRequest.identity_provider:type_name -> types.v1.IdentityProvider
-	6, // 1: service.auth.v1.LoginRequest.identity_provider:type_name -> types.v1.IdentityProvider
-	0, // 2: service.auth.v1.AuthService.GetAuthURL:input_type -> service.auth.v1.GetAuthURLRequest
-	2, // 3: service.auth.v1.AuthService.Login:input_type -> service.auth.v1.LoginRequest
-	4, // 4: service.auth.v1.AuthService.Logout:input_type -> service.auth.v1.LogoutRequest
-	1, // 5: service.auth.v1.AuthService.GetAuthURL:output_type -> service.auth.v1.GetAuthURLResponse
-	3, // 6: service.auth.v1.AuthService.Login:output_type -> service.auth.v1.LoginResponse
-	5, // 7: service.auth.v1.AuthService.Logout:output_type -> service.auth.v1.LogoutResponse
-	5, // [5:8] is the sub-list for method output_type
-	2, // [2:5] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	4, // 0: service.auth.v1.GetAuthURLRequest.identity_provider:type_name -> types.v1.IdentityProvider
+	0, // 1: service.auth.v1.AuthService.GetAuthURL:input_type -> service.auth.v1.GetAuthURLRequest
+	2, // 2: service.auth.v1.AuthService.Logout:input_type -> service.auth.v1.LogoutRequest
+	1, // 3: service.auth.v1.AuthService.GetAuthURL:output_type -> service.auth.v1.GetAuthURLResponse
+	3, // 4: service.auth.v1.AuthService.Logout:output_type -> service.auth.v1.LogoutResponse
+	3, // [3:5] is the sub-list for method output_type
+	1, // [1:3] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_service_auth_v1_service_proto_init() }
@@ -399,7 +263,7 @@ func file_service_auth_v1_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_service_auth_v1_service_proto_rawDesc), len(file_service_auth_v1_service_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

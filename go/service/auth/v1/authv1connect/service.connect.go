@@ -35,8 +35,6 @@ const (
 const (
 	// AuthServiceGetAuthURLProcedure is the fully-qualified name of the AuthService's GetAuthURL RPC.
 	AuthServiceGetAuthURLProcedure = "/service.auth.v1.AuthService/GetAuthURL"
-	// AuthServiceLoginProcedure is the fully-qualified name of the AuthService's Login RPC.
-	AuthServiceLoginProcedure = "/service.auth.v1.AuthService/Login"
 	// AuthServiceLogoutProcedure is the fully-qualified name of the AuthService's Logout RPC.
 	AuthServiceLogoutProcedure = "/service.auth.v1.AuthService/Logout"
 )
@@ -44,7 +42,6 @@ const (
 // AuthServiceClient is a client for the service.auth.v1.AuthService service.
 type AuthServiceClient interface {
 	GetAuthURL(context.Context, *connect.Request[v1.GetAuthURLRequest]) (*connect.Response[v1.GetAuthURLResponse], error)
-	Login(context.Context, *connect.Request[v1.LoginRequest]) (*connect.Response[v1.LoginResponse], error)
 	Logout(context.Context, *connect.Request[v1.LogoutRequest]) (*connect.Response[v1.LogoutResponse], error)
 }
 
@@ -65,12 +62,6 @@ func NewAuthServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 			connect.WithSchema(authServiceMethods.ByName("GetAuthURL")),
 			connect.WithClientOptions(opts...),
 		),
-		login: connect.NewClient[v1.LoginRequest, v1.LoginResponse](
-			httpClient,
-			baseURL+AuthServiceLoginProcedure,
-			connect.WithSchema(authServiceMethods.ByName("Login")),
-			connect.WithClientOptions(opts...),
-		),
 		logout: connect.NewClient[v1.LogoutRequest, v1.LogoutResponse](
 			httpClient,
 			baseURL+AuthServiceLogoutProcedure,
@@ -83,18 +74,12 @@ func NewAuthServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 // authServiceClient implements AuthServiceClient.
 type authServiceClient struct {
 	getAuthURL *connect.Client[v1.GetAuthURLRequest, v1.GetAuthURLResponse]
-	login      *connect.Client[v1.LoginRequest, v1.LoginResponse]
 	logout     *connect.Client[v1.LogoutRequest, v1.LogoutResponse]
 }
 
 // GetAuthURL calls service.auth.v1.AuthService.GetAuthURL.
 func (c *authServiceClient) GetAuthURL(ctx context.Context, req *connect.Request[v1.GetAuthURLRequest]) (*connect.Response[v1.GetAuthURLResponse], error) {
 	return c.getAuthURL.CallUnary(ctx, req)
-}
-
-// Login calls service.auth.v1.AuthService.Login.
-func (c *authServiceClient) Login(ctx context.Context, req *connect.Request[v1.LoginRequest]) (*connect.Response[v1.LoginResponse], error) {
-	return c.login.CallUnary(ctx, req)
 }
 
 // Logout calls service.auth.v1.AuthService.Logout.
@@ -105,7 +90,6 @@ func (c *authServiceClient) Logout(ctx context.Context, req *connect.Request[v1.
 // AuthServiceHandler is an implementation of the service.auth.v1.AuthService service.
 type AuthServiceHandler interface {
 	GetAuthURL(context.Context, *connect.Request[v1.GetAuthURLRequest]) (*connect.Response[v1.GetAuthURLResponse], error)
-	Login(context.Context, *connect.Request[v1.LoginRequest]) (*connect.Response[v1.LoginResponse], error)
 	Logout(context.Context, *connect.Request[v1.LogoutRequest]) (*connect.Response[v1.LogoutResponse], error)
 }
 
@@ -122,12 +106,6 @@ func NewAuthServiceHandler(svc AuthServiceHandler, opts ...connect.HandlerOption
 		connect.WithSchema(authServiceMethods.ByName("GetAuthURL")),
 		connect.WithHandlerOptions(opts...),
 	)
-	authServiceLoginHandler := connect.NewUnaryHandler(
-		AuthServiceLoginProcedure,
-		svc.Login,
-		connect.WithSchema(authServiceMethods.ByName("Login")),
-		connect.WithHandlerOptions(opts...),
-	)
 	authServiceLogoutHandler := connect.NewUnaryHandler(
 		AuthServiceLogoutProcedure,
 		svc.Logout,
@@ -138,8 +116,6 @@ func NewAuthServiceHandler(svc AuthServiceHandler, opts ...connect.HandlerOption
 		switch r.URL.Path {
 		case AuthServiceGetAuthURLProcedure:
 			authServiceGetAuthURLHandler.ServeHTTP(w, r)
-		case AuthServiceLoginProcedure:
-			authServiceLoginHandler.ServeHTTP(w, r)
 		case AuthServiceLogoutProcedure:
 			authServiceLogoutHandler.ServeHTTP(w, r)
 		default:
@@ -153,10 +129,6 @@ type UnimplementedAuthServiceHandler struct{}
 
 func (UnimplementedAuthServiceHandler) GetAuthURL(context.Context, *connect.Request[v1.GetAuthURLRequest]) (*connect.Response[v1.GetAuthURLResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("service.auth.v1.AuthService.GetAuthURL is not implemented"))
-}
-
-func (UnimplementedAuthServiceHandler) Login(context.Context, *connect.Request[v1.LoginRequest]) (*connect.Response[v1.LoginResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("service.auth.v1.AuthService.Login is not implemented"))
 }
 
 func (UnimplementedAuthServiceHandler) Logout(context.Context, *connect.Request[v1.LogoutRequest]) (*connect.Response[v1.LogoutResponse], error) {

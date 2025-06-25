@@ -7,34 +7,20 @@ import "types/v1/identity_provider.proto";
 
 service AuthService {
     rpc GetAuthURL(GetAuthURLRequest) returns (GetAuthURLResponse) {}
-    rpc Login(LoginRequest) returns (LoginResponse) {}
     rpc Logout(LogoutRequest) returns (LogoutResponse) {}
 }
 
 message GetAuthURLRequest {
     // requried
     types.v1.IdentityProvider identity_provider = 1;
-    optional string redirect_uri = 2;
+    optional string redirect_url = 2;
 }
 
 message GetAuthURLResponse {
     string auth_url = 1;
 }
 
-message LoginRequest {
-    types.v1.IdentityProvider identity_provider = 1;
-    string auth_code = 2;
-}
-
-message LoginResponse {
-    string access_token = 1; // jwt
-    string session_id = 2; // uuid
-    bool is_new_user = 3;
-}
-
-message LogoutRequest {
-    string session_id = 1;
-}
+message LogoutRequest {}
 
 message LogoutResponse {
     bool success = 1;

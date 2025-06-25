@@ -33,13 +33,16 @@ const (
 // reflection-formatted method names, remove the leading slash and convert the remaining slash to a
 // period.
 const (
-	// UserServiceGetProfileProcedure is the fully-qualified name of the UserService's GetProfile RPC.
-	UserServiceGetProfileProcedure = "/service.user.v1.UserService/GetProfile"
+	// UserServiceGetMeProcedure is the fully-qualified name of the UserService's GetMe RPC.
+	UserServiceGetMeProcedure = "/service.user.v1.UserService/GetMe"
+	// UserServiceGetUserByIdProcedure is the fully-qualified name of the UserService's GetUserById RPC.
+	UserServiceGetUserByIdProcedure = "/service.user.v1.UserService/GetUserById"
 )
 
 // UserServiceClient is a client for the service.user.v1.UserService service.
 type UserServiceClient interface {
-	GetProfile(context.Context, *connect.Request[v1.GetProfileRequest]) (*connect.Response[v1.GetProfileResponse], error)
+	GetMe(context.Context, *connect.Request[v1.GetMeRequest]) (*connect.Response[v1.GetMeResponse], error)
+	GetUserById(context.Context, *connect.Request[v1.GetUserByIdRequest]) (*connect.Response[v1.GetUserByIdResponse], error)
 }
 
 // NewUserServiceClient constructs a client for the service.user.v1.UserService service. By default,
@@ -53,10 +56,16 @@ func NewUserServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 	baseURL = strings.TrimRight(baseURL, "/")
 	userServiceMethods := v1.File_service_user_v1_service_proto.Services().ByName("UserService").Methods()
 	return &userServiceClient{
-		getProfile: connect.NewClient[v1.GetProfileRequest, v1.GetProfileResponse](
+		getMe: connect.NewClient[v1.GetMeRequest, v1.GetMeResponse](
 			httpClient,
-			baseURL+UserServiceGetProfileProcedure,
-			connect.WithSchema(userServiceMethods.ByName("GetProfile")),
+			baseURL+UserServiceGetMeProcedure,
+			connect.WithSchema(userServiceMethods.ByName("GetMe")),
+			connect.WithClientOptions(opts...),
+		),
+		getUserById: connect.NewClient[v1.GetUserByIdRequest, v1.GetUserByIdResponse](
+			httpClient,
+			baseURL+UserServiceGetUserByIdProcedure,
+			connect.WithSchema(userServiceMethods.ByName("GetUserById")),
 			connect.WithClientOptions(opts...),
 		),
 	}
@@ -64,17 +73,24 @@ func NewUserServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 
 // userServiceClient implements UserServiceClient.
 type userServiceClient struct {
-	getProfile *connect.Client[v1.GetProfileRequest, v1.GetProfileResponse]
+	getMe       *connect.Client[v1.GetMeRequest, v1.GetMeResponse]
+	getUserById *connect.Client[v1.GetUserByIdRequest, v1.GetUserByIdResponse]
 }
 
-// GetProfile calls service.user.v1.UserService.GetProfile.
-func (c *userServiceClient) GetProfile(ctx context.Context, req *connect.Request[v1.GetProfileRequest]) (*connect.Response[v1.GetProfileResponse], error) {
-	return c.getProfile.CallUnary(ctx, req)
+// GetMe calls service.user.v1.UserService.GetMe.
+func (c *userServiceClient) GetMe(ctx context.Context, req *connect.Request[v1.GetMeRequest]) (*connect.Response[v1.GetMeResponse], error) {
+	return c.getMe.CallUnary(ctx, req)
+}
+
+// GetUserById calls service.user.v1.UserService.GetUserById.
+func (c *userServiceClient) GetUserById(ctx context.Context, req *connect.Request[v1.GetUserByIdRequest]) (*connect.Response[v1.GetUserByIdResponse], error) {
+	return c.getUserById.CallUnary(ctx, req)
 }
 
 // UserServiceHandler is an implementation of the service.user.v1.UserService service.
 type UserServiceHandler interface {
-	GetProfile(context.Context, *connect.Request[v1.GetProfileRequest]) (*connect.Response[v1.GetProfileResponse], error)
+	GetMe(context.Context, *connect.Request[v1.GetMeRequest]) (*connect.Response[v1.GetMeResponse], error)
+	GetUserById(context.Context, *connect.Request[v1.GetUserByIdRequest]) (*connect.Response[v1.GetUserByIdResponse], error)
 }
 
 // NewUserServiceHandler builds an HTTP handler from the service implementation. It returns the path
@@ -84,16 +100,24 @@ type UserServiceHandler interface {
 // and JSON codecs. They also support gzip compression.
 func NewUserServiceHandler(svc UserServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
 	userServiceMethods := v1.File_service_user_v1_service_proto.Services().ByName("UserService").Methods()
-	userServiceGetProfileHandler := connect.NewUnaryHandler(
-		UserServiceGetProfileProcedure,
-		svc.GetProfile,
-		connect.WithSchema(userServiceMethods.ByName("GetProfile")),
+	userServiceGetMeHandler := connect.NewUnaryHandler(
+		UserServiceGetMeProcedure,
+		svc.GetMe,
+		connect.WithSchema(userServiceMethods.ByName("GetMe")),
+		connect.WithHandlerOptions(opts...),
+	)
+	userServiceGetUserByIdHandler := connect.NewUnaryHandler(
+		UserServiceGetUserByIdProcedure,
+		svc.GetUserById,
+		connect.WithSchema(userServiceMethods.ByName("GetUserById")),
 		connect.WithHandlerOptions(opts...),
 	)
 	return "/service.user.v1.UserService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
-		case UserServiceGetProfileProcedure:
-			userServiceGetProfileHandler.ServeHTTP(w, r)
+		case UserServiceGetMeProcedure:
+			userServiceGetMeHandler.ServeHTTP(w, r)
+		case UserServiceGetUserByIdProcedure:
+			userServiceGetUserByIdHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -103,6 +127,10 @@ func NewUserServiceHandler(svc UserServiceHandler, opts ...connect.HandlerOption
 // UnimplementedUserServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedUserServiceHandler struct{}
 
-func (UnimplementedUserServiceHandler) GetProfile(context.Context, *connect.Request[v1.GetProfileRequest]) (*connect.Response[v1.GetProfileResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("service.user.v1.UserService.GetProfile is not implemented"))
+func (UnimplementedUserServiceHandler) GetMe(context.Context, *connect.Request[v1.GetMeRequest]) (*connect.Response[v1.GetMeResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("service.user.v1.UserService.GetMe is not implemented"))
+}
+
+func (UnimplementedUserServiceHandler) GetUserById(context.Context, *connect.Request[v1.GetUserByIdRequest]) (*connect.Response[v1.GetUserByIdResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("service.user.v1.UserService.GetUserById is not implemented"))
 }

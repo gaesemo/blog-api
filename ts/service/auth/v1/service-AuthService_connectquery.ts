@@ -10,11 +10,6 @@ import { AuthService } from "./service_pb";
 export const getAuthURL = AuthService.method.getAuthURL;
 
 /**
- * @generated from rpc service.auth.v1.AuthService.Login
- */
-export const login = AuthService.method.login;
-
-/**
  * @generated from rpc service.auth.v1.AuthService.Logout
  */
 export const logout = AuthService.method.logout;

@@ -5,6 +5,11 @@
 import { UserService } from "./service_pb";
 
 /**
- * @generated from rpc service.user.v1.UserService.GetProfile
+ * @generated from rpc service.user.v1.UserService.GetMe
  */
-export const getProfile = UserService.method.getProfile;
+export const getMe = UserService.method.getMe;
+
+/**
+ * @generated from rpc service.user.v1.UserService.GetUserById
+ */
+export const getUserById = UserService.method.getUserById;

@@ -14,14 +14,14 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file types/v1/user.proto.
  */
 export const file_types_v1_user: GenFile = /*@__PURE__*/
-  fileDesc("ChN0eXBlcy92MS91c2VyLnByb3RvEgh0eXBlcy52MSLwAQoEVXNlchIKCgJpZBgBIAEoBBIQCgh1c2VybmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRISCgphdmF0YXJfdXJsGAQgASgJEhAKCGFib3V0X21lGAUgASgJEjUKEWlkZW50aXR5X3Byb3ZpZGVyGAYgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlchIuCgpjcmVhdGVkX2F0GGQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GGUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEI2WjRnaXRodWIuY29tL2dhZXNlbW8vdGVjaC1ibG9nLWFwaS9nby90eXBlcy92MTt0eXBlc3YxYgZwcm90bzM", [file_google_protobuf_timestamp, file_types_v1_identity_provider]);
+  fileDesc("ChN0eXBlcy92MS91c2VyLnByb3RvEgh0eXBlcy52MSLwAQoEVXNlchIKCgJpZBgBIAEoAxIQCgh1c2VybmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRISCgphdmF0YXJfdXJsGAQgASgJEhAKCGFib3V0X21lGAUgASgJEjUKEWlkZW50aXR5X3Byb3ZpZGVyGAYgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlchIuCgpjcmVhdGVkX2F0GGQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GGUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEI2WjRnaXRodWIuY29tL2dhZXNlbW8vdGVjaC1ibG9nLWFwaS9nby90eXBlcy92MTt0eXBlc3YxYgZwcm90bzM", [file_google_protobuf_timestamp, file_types_v1_identity_provider]);
 
 /**
  * @generated from message types.v1.User
  */
 export type User = Message<"types.v1.User"> & {
   /**
-   * @generated from field: uint64 id = 1;
+   * @generated from field: int64 id = 1;
    */
   id: bigint;
 

@@ -7,6 +7,7 @@
 package userv1
 
 import (
+	v1 "github.com/gaesemo/tech-blog-api/go/types/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -21,28 +22,26 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type GetProfileRequest struct {
+type GetMeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	AccessToken   string                 `protobuf:"bytes,1,opt,name=access_token,json=accessToken,proto3" json:"access_token,omitempty"`
-	Session       string                 `protobuf:"bytes,2,opt,name=session,proto3" json:"session,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetProfileRequest) Reset() {
-	*x = GetProfileRequest{}
+func (x *GetMeRequest) Reset() {
+	*x = GetMeRequest{}
 	mi := &file_service_user_v1_service_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetProfileRequest) String() string {
+func (x *GetMeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetProfileRequest) ProtoMessage() {}
+func (*GetMeRequest) ProtoMessage() {}
 
-func (x *GetProfileRequest) ProtoReflect() protoreflect.Message {
+func (x *GetMeRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_service_user_v1_service_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -54,48 +53,32 @@ func (x *GetProfileRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetProfileRequest.ProtoReflect.Descriptor instead.
-func (*GetProfileRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetMeRequest.ProtoReflect.Descriptor instead.
+func (*GetMeRequest) Descriptor() ([]byte, []int) {
 	return file_service_user_v1_service_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *GetProfileRequest) GetAccessToken() string {
-	if x != nil {
-		return x.AccessToken
-	}
-	return ""
-}
-
-func (x *GetProfileRequest) GetSession() string {
-	if x != nil {
-		return x.Session
-	}
-	return ""
-}
-
-type GetProfileResponse struct {
+type GetMeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Username      string                 `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
-	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
-	AvatarUrl     string                 `protobuf:"bytes,3,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
+	User          *v1.User               `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetProfileResponse) Reset() {
-	*x = GetProfileResponse{}
+func (x *GetMeResponse) Reset() {
+	*x = GetMeResponse{}
 	mi := &file_service_user_v1_service_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetProfileResponse) String() string {
+func (x *GetMeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetProfileResponse) ProtoMessage() {}
+func (*GetMeResponse) ProtoMessage() {}
 
-func (x *GetProfileResponse) ProtoReflect() protoreflect.Message {
+func (x *GetMeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_service_user_v1_service_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -107,48 +90,122 @@ func (x *GetProfileResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetProfileResponse.ProtoReflect.Descriptor instead.
-func (*GetProfileResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetMeResponse.ProtoReflect.Descriptor instead.
+func (*GetMeResponse) Descriptor() ([]byte, []int) {
 	return file_service_user_v1_service_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetProfileResponse) GetUsername() string {
+func (x *GetMeResponse) GetUser() *v1.User {
 	if x != nil {
-		return x.Username
+		return x.User
 	}
-	return ""
+	return nil
 }
 
-func (x *GetProfileResponse) GetEmail() string {
-	if x != nil {
-		return x.Email
-	}
-	return ""
+type GetUserByIdRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// required
+	Id            int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetProfileResponse) GetAvatarUrl() string {
+func (x *GetUserByIdRequest) Reset() {
+	*x = GetUserByIdRequest{}
+	mi := &file_service_user_v1_service_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserByIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserByIdRequest) ProtoMessage() {}
+
+func (x *GetUserByIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_service_user_v1_service_proto_msgTypes[2]
 	if x != nil {
-		return x.AvatarUrl
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
 	}
-	return ""
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserByIdRequest.ProtoReflect.Descriptor instead.
+func (*GetUserByIdRequest) Descriptor() ([]byte, []int) {
+	return file_service_user_v1_service_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetUserByIdRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type GetUserByIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	User          *v1.User               `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserByIdResponse) Reset() {
+	*x = GetUserByIdResponse{}
+	mi := &file_service_user_v1_service_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserByIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserByIdResponse) ProtoMessage() {}
+
+func (x *GetUserByIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_service_user_v1_service_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserByIdResponse.ProtoReflect.Descriptor instead.
+func (*GetUserByIdResponse) Descriptor() ([]byte, []int) {
+	return file_service_user_v1_service_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetUserByIdResponse) GetUser() *v1.User {
+	if x != nil {
+		return x.User
+	}
+	return nil
 }
 
 var File_service_user_v1_service_proto protoreflect.FileDescriptor
 
 const file_service_user_v1_service_proto_rawDesc = "" +
 	"\n" +
-	"\x1dservice/user/v1/service.proto\x12\x0fservice.user.v1\"P\n" +
-	"\x11GetProfileRequest\x12!\n" +
-	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\x12\x18\n" +
-	"\asession\x18\x02 \x01(\tR\asession\"e\n" +
-	"\x12GetProfileResponse\x12\x1a\n" +
-	"\busername\x18\x01 \x01(\tR\busername\x12\x14\n" +
-	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1d\n" +
-	"\n" +
-	"avatar_url\x18\x03 \x01(\tR\tavatarUrl2f\n" +
-	"\vUserService\x12W\n" +
-	"\n" +
-	"GetProfile\x12\".service.user.v1.GetProfileRequest\x1a#.service.user.v1.GetProfileResponse\"\x00B<Z:github.com/gaesemo/tech-blog-api/go/service/user/v1;userv1b\x06proto3"
+	"\x1dservice/user/v1/service.proto\x12\x0fservice.user.v1\x1a\x13types/v1/user.proto\"\x0e\n" +
+	"\fGetMeRequest\"3\n" +
+	"\rGetMeResponse\x12\"\n" +
+	"\x04user\x18\x01 \x01(\v2\x0e.types.v1.UserR\x04user\"$\n" +
+	"\x12GetUserByIdRequest\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x03R\x02id\"9\n" +
+	"\x13GetUserByIdResponse\x12\"\n" +
+	"\x04user\x18\x01 \x01(\v2\x0e.types.v1.UserR\x04user2\xb3\x01\n" +
+	"\vUserService\x12H\n" +
+	"\x05GetMe\x12\x1d.service.user.v1.GetMeRequest\x1a\x1e.service.user.v1.GetMeResponse\"\x00\x12Z\n" +
+	"\vGetUserById\x12#.service.user.v1.GetUserByIdRequest\x1a$.service.user.v1.GetUserByIdResponse\"\x00B<Z:github.com/gaesemo/tech-blog-api/go/service/user/v1;userv1b\x06proto3"
 
 var (
 	file_service_user_v1_service_proto_rawDescOnce sync.Once
@@ -162,19 +219,26 @@ func file_service_user_v1_service_proto_rawDescGZIP() []byte {
 	return file_service_user_v1_service_proto_rawDescData
 }
 
-var file_service_user_v1_service_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_service_user_v1_service_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_service_user_v1_service_proto_goTypes = []any{
-	(*GetProfileRequest)(nil),  // 0: service.user.v1.GetProfileRequest
-	(*GetProfileResponse)(nil), // 1: service.user.v1.GetProfileResponse
+	(*GetMeRequest)(nil),        // 0: service.user.v1.GetMeRequest
+	(*GetMeResponse)(nil),       // 1: service.user.v1.GetMeResponse
+	(*GetUserByIdRequest)(nil),  // 2: service.user.v1.GetUserByIdRequest
+	(*GetUserByIdResponse)(nil), // 3: service.user.v1.GetUserByIdResponse
+	(*v1.User)(nil),             // 4: types.v1.User
 }
 var file_service_user_v1_service_proto_depIdxs = []int32{
-	0, // 0: service.user.v1.UserService.GetProfile:input_type -> service.user.v1.GetProfileRequest
-	1, // 1: service.user.v1.UserService.GetProfile:output_type -> service.user.v1.GetProfileResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	4, // 0: service.user.v1.GetMeResponse.user:type_name -> types.v1.User
+	4, // 1: service.user.v1.GetUserByIdResponse.user:type_name -> types.v1.User
+	0, // 2: service.user.v1.UserService.GetMe:input_type -> service.user.v1.GetMeRequest
+	2, // 3: service.user.v1.UserService.GetUserById:input_type -> service.user.v1.GetUserByIdRequest
+	1, // 4: service.user.v1.UserService.GetMe:output_type -> service.user.v1.GetMeResponse
+	3, // 5: service.user.v1.UserService.GetUserById:output_type -> service.user.v1.GetUserByIdResponse
+	4, // [4:6] is the sub-list for method output_type
+	2, // [2:4] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_service_user_v1_service_proto_init() }
@@ -188,7 +252,7 @@ func file_service_user_v1_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_service_user_v1_service_proto_rawDesc), len(file_service_user_v1_service_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

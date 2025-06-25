@@ -4,74 +4,101 @@
 
 import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
 import { fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
+import type { User } from "../../../types/v1/user_pb";
+import { file_types_v1_user } from "../../../types/v1/user_pb";
 import type { Message } from "@bufbuild/protobuf";
 
 /**
  * Describes the file service/user/v1/service.proto.
  */
 export const file_service_user_v1_service: GenFile = /*@__PURE__*/
-  fileDesc("Ch1zZXJ2aWNlL3VzZXIvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS51c2VyLnYxIjoKEUdldFByb2ZpbGVSZXF1ZXN0EhQKDGFjY2Vzc190b2tlbhgBIAEoCRIPCgdzZXNzaW9uGAIgASgJIkkKEkdldFByb2ZpbGVSZXNwb25zZRIQCgh1c2VybmFtZRgBIAEoCRINCgVlbWFpbBgCIAEoCRISCgphdmF0YXJfdXJsGAMgASgJMmYKC1VzZXJTZXJ2aWNlElcKCkdldFByb2ZpbGUSIi5zZXJ2aWNlLnVzZXIudjEuR2V0UHJvZmlsZVJlcXVlc3QaIy5zZXJ2aWNlLnVzZXIudjEuR2V0UHJvZmlsZVJlc3BvbnNlIgBCPFo6Z2l0aHViLmNvbS9nYWVzZW1vL3RlY2gtYmxvZy1hcGkvZ28vc2VydmljZS91c2VyL3YxO3VzZXJ2MWIGcHJvdG8z");
+  fileDesc("Ch1zZXJ2aWNlL3VzZXIvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS51c2VyLnYxIg4KDEdldE1lUmVxdWVzdCItCg1HZXRNZVJlc3BvbnNlEhwKBHVzZXIYASABKAsyDi50eXBlcy52MS5Vc2VyIiAKEkdldFVzZXJCeUlkUmVxdWVzdBIKCgJpZBgBIAEoAyIzChNHZXRVc2VyQnlJZFJlc3BvbnNlEhwKBHVzZXIYASABKAsyDi50eXBlcy52MS5Vc2VyMrMBCgtVc2VyU2VydmljZRJICgVHZXRNZRIdLnNlcnZpY2UudXNlci52MS5HZXRNZVJlcXVlc3QaHi5zZXJ2aWNlLnVzZXIudjEuR2V0TWVSZXNwb25zZSIAEloKC0dldFVzZXJCeUlkEiMuc2VydmljZS51c2VyLnYxLkdldFVzZXJCeUlkUmVxdWVzdBokLnNlcnZpY2UudXNlci52MS5HZXRVc2VyQnlJZFJlc3BvbnNlIgBCPFo6Z2l0aHViLmNvbS9nYWVzZW1vL3RlY2gtYmxvZy1hcGkvZ28vc2VydmljZS91c2VyL3YxO3VzZXJ2MWIGcHJvdG8z", [file_types_v1_user]);
 
 /**
- * @generated from message service.user.v1.GetProfileRequest
+ * @generated from message service.user.v1.GetMeRequest
  */
-export type GetProfileRequest = Message<"service.user.v1.GetProfileRequest"> & {
-  /**
-   * @generated from field: string access_token = 1;
-   */
-  accessToken: string;
-
-  /**
-   * @generated from field: string session = 2;
-   */
-  session: string;
+export type GetMeRequest = Message<"service.user.v1.GetMeRequest"> & {
 };
 
 /**
- * Describes the message service.user.v1.GetProfileRequest.
- * Use `create(GetProfileRequestSchema)` to create a new message.
+ * Describes the message service.user.v1.GetMeRequest.
+ * Use `create(GetMeRequestSchema)` to create a new message.
  */
-export const GetProfileRequestSchema: GenMessage<GetProfileRequest> = /*@__PURE__*/
+export const GetMeRequestSchema: GenMessage<GetMeRequest> = /*@__PURE__*/
   messageDesc(file_service_user_v1_service, 0);
 
 /**
- * @generated from message service.user.v1.GetProfileResponse
+ * @generated from message service.user.v1.GetMeResponse
  */
-export type GetProfileResponse = Message<"service.user.v1.GetProfileResponse"> & {
+export type GetMeResponse = Message<"service.user.v1.GetMeResponse"> & {
   /**
-   * @generated from field: string username = 1;
+   * @generated from field: types.v1.User user = 1;
    */
-  username: string;
-
-  /**
-   * @generated from field: string email = 2;
-   */
-  email: string;
-
-  /**
-   * @generated from field: string avatar_url = 3;
-   */
-  avatarUrl: string;
+  user?: User;
 };
 
 /**
- * Describes the message service.user.v1.GetProfileResponse.
- * Use `create(GetProfileResponseSchema)` to create a new message.
+ * Describes the message service.user.v1.GetMeResponse.
+ * Use `create(GetMeResponseSchema)` to create a new message.
  */
-export const GetProfileResponseSchema: GenMessage<GetProfileResponse> = /*@__PURE__*/
+export const GetMeResponseSchema: GenMessage<GetMeResponse> = /*@__PURE__*/
   messageDesc(file_service_user_v1_service, 1);
+
+/**
+ * @generated from message service.user.v1.GetUserByIdRequest
+ */
+export type GetUserByIdRequest = Message<"service.user.v1.GetUserByIdRequest"> & {
+  /**
+   * required
+   *
+   * @generated from field: int64 id = 1;
+   */
+  id: bigint;
+};
+
+/**
+ * Describes the message service.user.v1.GetUserByIdRequest.
+ * Use `create(GetUserByIdRequestSchema)` to create a new message.
+ */
+export const GetUserByIdRequestSchema: GenMessage<GetUserByIdRequest> = /*@__PURE__*/
+  messageDesc(file_service_user_v1_service, 2);
+
+/**
+ * @generated from message service.user.v1.GetUserByIdResponse
+ */
+export type GetUserByIdResponse = Message<"service.user.v1.GetUserByIdResponse"> & {
+  /**
+   * @generated from field: types.v1.User user = 1;
+   */
+  user?: User;
+};
+
+/**
+ * Describes the message service.user.v1.GetUserByIdResponse.
+ * Use `create(GetUserByIdResponseSchema)` to create a new message.
+ */
+export const GetUserByIdResponseSchema: GenMessage<GetUserByIdResponse> = /*@__PURE__*/
+  messageDesc(file_service_user_v1_service, 3);
 
 /**
  * @generated from service service.user.v1.UserService
  */
 export const UserService: GenService<{
   /**
-   * @generated from rpc service.user.v1.UserService.GetProfile
+   * @generated from rpc service.user.v1.UserService.GetMe
    */
-  getProfile: {
+  getMe: {
     methodKind: "unary";
-    input: typeof GetProfileRequestSchema;
-    output: typeof GetProfileResponseSchema;
+    input: typeof GetMeRequestSchema;
+    output: typeof GetMeResponseSchema;
+  },
+  /**
+   * @generated from rpc service.user.v1.UserService.GetUserById
+   */
+  getUserById: {
+    methodKind: "unary";
+    input: typeof GetUserByIdRequestSchema;
+    output: typeof GetUserByIdResponseSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_service_user_v1_service, 0);
