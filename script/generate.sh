@@ -5,7 +5,7 @@ set -e
 root=$(git rev-parse --show-toplevel)
 
 function main() {
-    export PATH=${PATH}:${root}/ts/node_modules/.bin
+    export PATH=${PATH}:${root}/node_modules/.bin
     pushd ${root}/go
     [ -n "$(go env GOBIN)" ] && export PATH=${PATH}:$(go env GOBIN)
     [ -n "$(go env GOPATH)" ] && export PATH=${PATH}:$(go env GOPATH)/bin
