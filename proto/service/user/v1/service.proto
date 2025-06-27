@@ -6,7 +6,7 @@ option go_package = "github.com/gaesemo/blog-api/go/service/user/v1;userv1";
 import "types/v1/user.proto";
 
 service UserService {
-    rpc GetMe(GetMeRequest) returns (GetMeResponse) {}
+    rpc GetMe(google.) returns (GetMeResponse) {}
     rpc GetUserById(GetUserByIdRequest) returns (GetUserByIdResponse) {}
 }
 

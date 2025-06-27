@@ -1,0 +1,5 @@
+syntax = "proto3"
+
+package types.v1;
+option go_package = "github.com/gaesemo/blog-api/go/types/v1;typesv1";
+

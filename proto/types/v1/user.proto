@@ -16,4 +16,5 @@ message User {
 
     google.protobuf.Timestamp created_at = 100;
     google.protobuf.Timestamp updated_at = 101;
+    google.protobuf.Timestamp deleted_at = 102;
 }

@@ -1,0 +1,47 @@
+syntax = "proto3"
+
+package service.post.v1;
+option go_package = "github.com/gaesemo/blog-api/go/service/post/v1;postv1;
+
+import "types/v1/post.proto";
+
+service PostService {
+    rpc Feed(FeedRequest) returns (FeedResponse) {}
+    // rpc Like(LikeRequest) returns (LikeResponse) {}
+    // rpc View(ViewRequest) returns (ViewResponse) {}
+    rpc Detail(DetailRequest) returns (DetailResponse) {}
+    rpc Update(UpdateRequest) returns (UpdateResponse) {}
+    rpc Delete(DeleteRequest) returns (DeleteRequest) {}
+}
+
+message FeedRequest {
+
+}
+
+message FeedResponse {
+
+}
+
+message DetailRequest {
+    
+}
+
+message DetailResponse {
+    types.v1.Post post = 1;
+}
+
+message UpdateRequest {
+
+}
+
+message UpdateResponse {
+
+}
+
+message DeleteRequest {
+
+}
+
+message DeleteResponse {
+
+}
