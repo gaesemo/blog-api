@@ -25,7 +25,10 @@ message LoginRequest {
     string code = 2;
 }
 
-message LoginResponse {}
+message LoginResponse {
+    string token = 1;
+    bool is_new_user = 2;
+}
 
 message LogoutRequest {}
 

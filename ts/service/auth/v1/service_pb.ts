@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file service/auth/v1/service.proto.
  */
 export const file_service_auth_v1_service: GenFile = /*@__PURE__*/
-  fileDesc("Ch1zZXJ2aWNlL2F1dGgvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS5hdXRoLnYxIkoKEUdldEF1dGhVUkxSZXF1ZXN0EjUKEWlkZW50aXR5X3Byb3ZpZGVyGAEgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlciImChJHZXRBdXRoVVJMUmVzcG9uc2USEAoIYXV0aF91cmwYASABKAkiUwoMTG9naW5SZXF1ZXN0EjUKEWlkZW50aXR5X3Byb3ZpZGVyGAEgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlchIMCgRjb2RlGAIgASgJIg8KDUxvZ2luUmVzcG9uc2UiDwoNTG9nb3V0UmVxdWVzdCIhCg5Mb2dvdXRSZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIMv0BCgtBdXRoU2VydmljZRJXCgpHZXRBdXRoVVJMEiIuc2VydmljZS5hdXRoLnYxLkdldEF1dGhVUkxSZXF1ZXN0GiMuc2VydmljZS5hdXRoLnYxLkdldEF1dGhVUkxSZXNwb25zZSIAEkgKBUxvZ2luEh0uc2VydmljZS5hdXRoLnYxLkxvZ2luUmVxdWVzdBoeLnNlcnZpY2UuYXV0aC52MS5Mb2dpblJlc3BvbnNlIgASSwoGTG9nb3V0Eh4uc2VydmljZS5hdXRoLnYxLkxvZ291dFJlcXVlc3QaHy5zZXJ2aWNlLmF1dGgudjEuTG9nb3V0UmVzcG9uc2UiAEI3WjVnaXRodWIuY29tL2dhZXNlbW8vYmxvZy1hcGkvZ28vc2VydmljZS9hdXRoL3YxO2F1dGh2MWIGcHJvdG8z", [file_types_v1_identity_provider]);
+  fileDesc("Ch1zZXJ2aWNlL2F1dGgvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS5hdXRoLnYxIkoKEUdldEF1dGhVUkxSZXF1ZXN0EjUKEWlkZW50aXR5X3Byb3ZpZGVyGAEgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlciImChJHZXRBdXRoVVJMUmVzcG9uc2USEAoIYXV0aF91cmwYASABKAkiUwoMTG9naW5SZXF1ZXN0EjUKEWlkZW50aXR5X3Byb3ZpZGVyGAEgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlchIMCgRjb2RlGAIgASgJIjMKDUxvZ2luUmVzcG9uc2USDQoFdG9rZW4YASABKAkSEwoLaXNfbmV3X3VzZXIYAiABKAgiDwoNTG9nb3V0UmVxdWVzdCIhCg5Mb2dvdXRSZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIMv0BCgtBdXRoU2VydmljZRJXCgpHZXRBdXRoVVJMEiIuc2VydmljZS5hdXRoLnYxLkdldEF1dGhVUkxSZXF1ZXN0GiMuc2VydmljZS5hdXRoLnYxLkdldEF1dGhVUkxSZXNwb25zZSIAEkgKBUxvZ2luEh0uc2VydmljZS5hdXRoLnYxLkxvZ2luUmVxdWVzdBoeLnNlcnZpY2UuYXV0aC52MS5Mb2dpblJlc3BvbnNlIgASSwoGTG9nb3V0Eh4uc2VydmljZS5hdXRoLnYxLkxvZ291dFJlcXVlc3QaHy5zZXJ2aWNlLmF1dGgudjEuTG9nb3V0UmVzcG9uc2UiAEI3WjVnaXRodWIuY29tL2dhZXNlbW8vYmxvZy1hcGkvZ28vc2VydmljZS9hdXRoL3YxO2F1dGh2MWIGcHJvdG8z", [file_types_v1_identity_provider]);
 
 /**
  * @generated from message service.auth.v1.GetAuthURLRequest
@@ -76,6 +76,15 @@ export const LoginRequestSchema: GenMessage<LoginRequest> = /*@__PURE__*/
  * @generated from message service.auth.v1.LoginResponse
  */
 export type LoginResponse = Message<"service.auth.v1.LoginResponse"> & {
+  /**
+   * @generated from field: string token = 1;
+   */
+  token: string;
+
+  /**
+   * @generated from field: bool is_new_user = 2;
+   */
+  isNewUser: boolean;
 };
 
 /**

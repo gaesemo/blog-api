@@ -165,6 +165,8 @@ func (x *LoginRequest) GetCode() string {
 
 type LoginResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
+	IsNewUser     bool                   `protobuf:"varint,2,opt,name=is_new_user,json=isNewUser,proto3" json:"is_new_user,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -197,6 +199,20 @@ func (x *LoginResponse) ProtoReflect() protoreflect.Message {
 // Deprecated: Use LoginResponse.ProtoReflect.Descriptor instead.
 func (*LoginResponse) Descriptor() ([]byte, []int) {
 	return file_service_auth_v1_service_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *LoginResponse) GetToken() string {
+	if x != nil {
+		return x.Token
+	}
+	return ""
+}
+
+func (x *LoginResponse) GetIsNewUser() bool {
+	if x != nil {
+		return x.IsNewUser
+	}
+	return false
 }
 
 type LogoutRequest struct {
@@ -290,8 +306,10 @@ const file_service_auth_v1_service_proto_rawDesc = "" +
 	"\bauth_url\x18\x01 \x01(\tR\aauthUrl\"k\n" +
 	"\fLoginRequest\x12G\n" +
 	"\x11identity_provider\x18\x01 \x01(\x0e2\x1a.types.v1.IdentityProviderR\x10identityProvider\x12\x12\n" +
-	"\x04code\x18\x02 \x01(\tR\x04code\"\x0f\n" +
-	"\rLoginResponse\"\x0f\n" +
+	"\x04code\x18\x02 \x01(\tR\x04code\"E\n" +
+	"\rLoginResponse\x12\x14\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\x12\x1e\n" +
+	"\vis_new_user\x18\x02 \x01(\bR\tisNewUser\"\x0f\n" +
 	"\rLogoutRequest\"*\n" +
 	"\x0eLogoutResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess2\xfd\x01\n" +
