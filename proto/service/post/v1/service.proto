@@ -1,29 +1,40 @@
-syntax = "proto3"
+syntax = "proto3";
 
 package service.post.v1;
-option go_package = "github.com/gaesemo/blog-api/go/service/post/v1;postv1;
+option go_package = "github.com/gaesemo/blog-api/go/service/post/v1;postv1";
 
 import "types/v1/post.proto";
+import "types/v1/cursor.proto";
 
 service PostService {
-    rpc Feed(FeedRequest) returns (FeedResponse) {}
-    // rpc Like(LikeRequest) returns (LikeResponse) {}
-    // rpc View(ViewRequest) returns (ViewResponse) {}
+    rpc Create(CreateRequest) returns (CreateResponse) {} // authorize requested
+    rpc List(ListRequest) returns (ListResponse) {}
+    // rpc Search(SearchRequest) returns (SearchResponse) {} // TODO: define the concept of search.
     rpc Detail(DetailRequest) returns (DetailResponse) {}
-    rpc Update(UpdateRequest) returns (UpdateResponse) {}
-    rpc Delete(DeleteRequest) returns (DeleteRequest) {}
+    rpc Update(UpdateRequest) returns (UpdateResponse) {} // authorization requested
+    rpc Delete(DeleteRequest) returns (DeleteResponse) {} // authorization requested
+    // rpc Like(LikeRequest) returns (LikeResponse) {}
+    // rpc Unlike()
 }
 
-message FeedRequest {
-
+message CreateRequest {
+    types.v1.PostContent post_content = 1;
+}
+message CreateResponse {
+    types.v1.Post post = 1; 
 }
 
-message FeedResponse {
+message ListRequest {
+    optional types.v1.Cursor curosr = 100;
+}
 
+message ListResponse {
+    repeated types.v1.Post posts = 1;
+    types.v1.Cursor next = 100;
 }
 
 message DetailRequest {
-    
+    int64 id = 1;
 }
 
 message DetailResponse {
@@ -31,17 +42,17 @@ message DetailResponse {
 }
 
 message UpdateRequest {
-
+    int64 id = 1;
+    string title = 2;
+    string markdown = 3;
 }
 
 message UpdateResponse {
-
 }
 
 message DeleteRequest {
-
+    int64 id = 1;
 }
 
 message DeleteResponse {
-
 }

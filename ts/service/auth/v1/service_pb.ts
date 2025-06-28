@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file service/auth/v1/service.proto.
  */
 export const file_service_auth_v1_service: GenFile = /*@__PURE__*/
-  fileDesc("Ch1zZXJ2aWNlL2F1dGgvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS5hdXRoLnYxInYKEUdldEF1dGhVUkxSZXF1ZXN0EjUKEWlkZW50aXR5X3Byb3ZpZGVyGAEgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlchIZCgxyZWRpcmVjdF91cmwYAiABKAlIAIgBAUIPCg1fcmVkaXJlY3RfdXJsIiYKEkdldEF1dGhVUkxSZXNwb25zZRIQCghhdXRoX3VybBgBIAEoCSIPCg1Mb2dvdXRSZXF1ZXN0IiEKDkxvZ291dFJlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgyswEKC0F1dGhTZXJ2aWNlElcKCkdldEF1dGhVUkwSIi5zZXJ2aWNlLmF1dGgudjEuR2V0QXV0aFVSTFJlcXVlc3QaIy5zZXJ2aWNlLmF1dGgudjEuR2V0QXV0aFVSTFJlc3BvbnNlIgASSwoGTG9nb3V0Eh4uc2VydmljZS5hdXRoLnYxLkxvZ291dFJlcXVlc3QaHy5zZXJ2aWNlLmF1dGgudjEuTG9nb3V0UmVzcG9uc2UiAEI3WjVnaXRodWIuY29tL2dhZXNlbW8vYmxvZy1hcGkvZ28vc2VydmljZS9hdXRoL3YxO2F1dGh2MWIGcHJvdG8z", [file_types_v1_identity_provider]);
+  fileDesc("Ch1zZXJ2aWNlL2F1dGgvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS5hdXRoLnYxIkoKEUdldEF1dGhVUkxSZXF1ZXN0EjUKEWlkZW50aXR5X3Byb3ZpZGVyGAEgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlciImChJHZXRBdXRoVVJMUmVzcG9uc2USEAoIYXV0aF91cmwYASABKAkiUwoMTG9naW5SZXF1ZXN0EjUKEWlkZW50aXR5X3Byb3ZpZGVyGAEgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlchIMCgRjb2RlGAIgASgJIg8KDUxvZ2luUmVzcG9uc2UiDwoNTG9nb3V0UmVxdWVzdCIhCg5Mb2dvdXRSZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIMv0BCgtBdXRoU2VydmljZRJXCgpHZXRBdXRoVVJMEiIuc2VydmljZS5hdXRoLnYxLkdldEF1dGhVUkxSZXF1ZXN0GiMuc2VydmljZS5hdXRoLnYxLkdldEF1dGhVUkxSZXNwb25zZSIAEkgKBUxvZ2luEh0uc2VydmljZS5hdXRoLnYxLkxvZ2luUmVxdWVzdBoeLnNlcnZpY2UuYXV0aC52MS5Mb2dpblJlc3BvbnNlIgASSwoGTG9nb3V0Eh4uc2VydmljZS5hdXRoLnYxLkxvZ291dFJlcXVlc3QaHy5zZXJ2aWNlLmF1dGgudjEuTG9nb3V0UmVzcG9uc2UiAEI3WjVnaXRodWIuY29tL2dhZXNlbW8vYmxvZy1hcGkvZ28vc2VydmljZS9hdXRoL3YxO2F1dGh2MWIGcHJvdG8z", [file_types_v1_identity_provider]);
 
 /**
  * @generated from message service.auth.v1.GetAuthURLRequest
@@ -24,11 +24,6 @@ export type GetAuthURLRequest = Message<"service.auth.v1.GetAuthURLRequest"> & {
    * @generated from field: types.v1.IdentityProvider identity_provider = 1;
    */
   identityProvider: IdentityProvider;
-
-  /**
-   * @generated from field: optional string redirect_url = 2;
-   */
-  redirectUrl?: string;
 };
 
 /**
@@ -56,6 +51,41 @@ export const GetAuthURLResponseSchema: GenMessage<GetAuthURLResponse> = /*@__PUR
   messageDesc(file_service_auth_v1_service, 1);
 
 /**
+ * @generated from message service.auth.v1.LoginRequest
+ */
+export type LoginRequest = Message<"service.auth.v1.LoginRequest"> & {
+  /**
+   * @generated from field: types.v1.IdentityProvider identity_provider = 1;
+   */
+  identityProvider: IdentityProvider;
+
+  /**
+   * @generated from field: string code = 2;
+   */
+  code: string;
+};
+
+/**
+ * Describes the message service.auth.v1.LoginRequest.
+ * Use `create(LoginRequestSchema)` to create a new message.
+ */
+export const LoginRequestSchema: GenMessage<LoginRequest> = /*@__PURE__*/
+  messageDesc(file_service_auth_v1_service, 2);
+
+/**
+ * @generated from message service.auth.v1.LoginResponse
+ */
+export type LoginResponse = Message<"service.auth.v1.LoginResponse"> & {
+};
+
+/**
+ * Describes the message service.auth.v1.LoginResponse.
+ * Use `create(LoginResponseSchema)` to create a new message.
+ */
+export const LoginResponseSchema: GenMessage<LoginResponse> = /*@__PURE__*/
+  messageDesc(file_service_auth_v1_service, 3);
+
+/**
  * @generated from message service.auth.v1.LogoutRequest
  */
 export type LogoutRequest = Message<"service.auth.v1.LogoutRequest"> & {
@@ -66,7 +96,7 @@ export type LogoutRequest = Message<"service.auth.v1.LogoutRequest"> & {
  * Use `create(LogoutRequestSchema)` to create a new message.
  */
 export const LogoutRequestSchema: GenMessage<LogoutRequest> = /*@__PURE__*/
-  messageDesc(file_service_auth_v1_service, 2);
+  messageDesc(file_service_auth_v1_service, 4);
 
 /**
  * @generated from message service.auth.v1.LogoutResponse
@@ -83,7 +113,7 @@ export type LogoutResponse = Message<"service.auth.v1.LogoutResponse"> & {
  * Use `create(LogoutResponseSchema)` to create a new message.
  */
 export const LogoutResponseSchema: GenMessage<LogoutResponse> = /*@__PURE__*/
-  messageDesc(file_service_auth_v1_service, 3);
+  messageDesc(file_service_auth_v1_service, 5);
 
 /**
  * @generated from service service.auth.v1.AuthService
@@ -96,6 +126,14 @@ export const AuthService: GenService<{
     methodKind: "unary";
     input: typeof GetAuthURLRequestSchema;
     output: typeof GetAuthURLResponseSchema;
+  },
+  /**
+   * @generated from rpc service.auth.v1.AuthService.Login
+   */
+  login: {
+    methodKind: "unary";
+    input: typeof LoginRequestSchema;
+    output: typeof LoginResponseSchema;
   },
   /**
    * @generated from rpc service.auth.v1.AuthService.Logout

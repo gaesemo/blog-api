@@ -1,5 +1,9 @@
-syntax = "proto3"
+syntax = "proto3";
 
 package types.v1;
 option go_package = "github.com/gaesemo/blog-api/go/types/v1;typesv1";
+
+message Cursor {
+    bytes opaque = 1; // we don't specify cursor's format or type
+}
 

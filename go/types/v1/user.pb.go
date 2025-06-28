@@ -32,6 +32,7 @@ type User struct {
 	IdentityProvider IdentityProvider       `protobuf:"varint,6,opt,name=identity_provider,json=identityProvider,proto3,enum=types.v1.IdentityProvider" json:"identity_provider,omitempty"`
 	CreatedAt        *timestamppb.Timestamp `protobuf:"bytes,100,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	UpdatedAt        *timestamppb.Timestamp `protobuf:"bytes,101,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	DeletedAt        *timestamppb.Timestamp `protobuf:"bytes,102,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -122,11 +123,18 @@ func (x *User) GetUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
+func (x *User) GetDeletedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.DeletedAt
+	}
+	return nil
+}
+
 var File_types_v1_user_proto protoreflect.FileDescriptor
 
 const file_types_v1_user_proto_rawDesc = "" +
 	"\n" +
-	"\x13types/v1/user.proto\x12\btypes.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a types/v1/identity_provider.proto\"\xc1\x02\n" +
+	"\x13types/v1/user.proto\x12\btypes.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a types/v1/identity_provider.proto\"\xfc\x02\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x14\n" +
@@ -138,7 +146,9 @@ const file_types_v1_user_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18d \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"updated_at\x18e \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAtB1Z/github.com/gaesemo/blog-api/go/types/v1;typesv1b\x06proto3"
+	"updated_at\x18e \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x129\n" +
+	"\n" +
+	"deleted_at\x18f \x01(\v2\x1a.google.protobuf.TimestampR\tdeletedAtB1Z/github.com/gaesemo/blog-api/go/types/v1;typesv1b\x06proto3"
 
 var (
 	file_types_v1_user_proto_rawDescOnce sync.Once
@@ -162,11 +172,12 @@ var file_types_v1_user_proto_depIdxs = []int32{
 	1, // 0: types.v1.User.identity_provider:type_name -> types.v1.IdentityProvider
 	2, // 1: types.v1.User.created_at:type_name -> google.protobuf.Timestamp
 	2, // 2: types.v1.User.updated_at:type_name -> google.protobuf.Timestamp
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	2, // 3: types.v1.User.deleted_at:type_name -> google.protobuf.Timestamp
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_types_v1_user_proto_init() }

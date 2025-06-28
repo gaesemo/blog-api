@@ -14,7 +14,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file types/v1/user.proto.
  */
 export const file_types_v1_user: GenFile = /*@__PURE__*/
-  fileDesc("ChN0eXBlcy92MS91c2VyLnByb3RvEgh0eXBlcy52MSLwAQoEVXNlchIKCgJpZBgBIAEoAxIQCgh1c2VybmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRISCgphdmF0YXJfdXJsGAQgASgJEhAKCGFib3V0X21lGAUgASgJEjUKEWlkZW50aXR5X3Byb3ZpZGVyGAYgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlchIuCgpjcmVhdGVkX2F0GGQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GGUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEIxWi9naXRodWIuY29tL2dhZXNlbW8vYmxvZy1hcGkvZ28vdHlwZXMvdjE7dHlwZXN2MWIGcHJvdG8z", [file_google_protobuf_timestamp, file_types_v1_identity_provider]);
+  fileDesc("ChN0eXBlcy92MS91c2VyLnByb3RvEgh0eXBlcy52MSKgAgoEVXNlchIKCgJpZBgBIAEoAxIQCgh1c2VybmFtZRgCIAEoCRINCgVlbWFpbBgDIAEoCRISCgphdmF0YXJfdXJsGAQgASgJEhAKCGFib3V0X21lGAUgASgJEjUKEWlkZW50aXR5X3Byb3ZpZGVyGAYgASgOMhoudHlwZXMudjEuSWRlbnRpdHlQcm92aWRlchIuCgpjcmVhdGVkX2F0GGQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GGUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgpkZWxldGVkX2F0GGYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEIxWi9naXRodWIuY29tL2dhZXNlbW8vYmxvZy1hcGkvZ28vdHlwZXMvdjE7dHlwZXN2MWIGcHJvdG8z", [file_google_protobuf_timestamp, file_types_v1_identity_provider]);
 
 /**
  * @generated from message types.v1.User
@@ -59,6 +59,11 @@ export type User = Message<"types.v1.User"> & {
    * @generated from field: google.protobuf.Timestamp updated_at = 101;
    */
   updatedAt?: Timestamp;
+
+  /**
+   * @generated from field: google.protobuf.Timestamp deleted_at = 102;
+   */
+  deletedAt?: Timestamp;
 };
 
 /**
