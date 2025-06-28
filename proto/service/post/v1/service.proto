@@ -25,7 +25,7 @@ message CreateResponse {
 }
 
 message ListRequest {
-    optional types.v1.Cursor curosr = 100;
+    optional types.v1.Cursor cursor = 100;
 }
 
 message ListResponse {

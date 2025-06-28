@@ -112,7 +112,7 @@ func (x *CreateResponse) GetPost() *v1.Post {
 
 type ListRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Curosr        *v1.Cursor             `protobuf:"bytes,100,opt,name=curosr,proto3,oneof" json:"curosr,omitempty"`
+	Cursor        *v1.Cursor             `protobuf:"bytes,100,opt,name=cursor,proto3,oneof" json:"cursor,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -147,9 +147,9 @@ func (*ListRequest) Descriptor() ([]byte, []int) {
 	return file_service_post_v1_service_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *ListRequest) GetCurosr() *v1.Cursor {
+func (x *ListRequest) GetCursor() *v1.Cursor {
 	if x != nil {
-		return x.Curosr
+		return x.Cursor
 	}
 	return nil
 }
@@ -480,8 +480,8 @@ const file_service_post_v1_service_proto_rawDesc = "" +
 	"\x0eCreateResponse\x12\"\n" +
 	"\x04post\x18\x01 \x01(\v2\x0e.types.v1.PostR\x04post\"G\n" +
 	"\vListRequest\x12-\n" +
-	"\x06curosr\x18d \x01(\v2\x10.types.v1.CursorH\x00R\x06curosr\x88\x01\x01B\t\n" +
-	"\a_curosr\"Z\n" +
+	"\x06cursor\x18d \x01(\v2\x10.types.v1.CursorH\x00R\x06cursor\x88\x01\x01B\t\n" +
+	"\a_cursor\"Z\n" +
 	"\fListResponse\x12$\n" +
 	"\x05posts\x18\x01 \x03(\v2\x0e.types.v1.PostR\x05posts\x12$\n" +
 	"\x04next\x18d \x01(\v2\x10.types.v1.CursorR\x04next\"\x1f\n" +
@@ -535,7 +535,7 @@ var file_service_post_v1_service_proto_goTypes = []any{
 var file_service_post_v1_service_proto_depIdxs = []int32{
 	10, // 0: service.post.v1.CreateRequest.post_content:type_name -> types.v1.PostContent
 	11, // 1: service.post.v1.CreateResponse.post:type_name -> types.v1.Post
-	12, // 2: service.post.v1.ListRequest.curosr:type_name -> types.v1.Cursor
+	12, // 2: service.post.v1.ListRequest.cursor:type_name -> types.v1.Cursor
 	11, // 3: service.post.v1.ListResponse.posts:type_name -> types.v1.Post
 	12, // 4: service.post.v1.ListResponse.next:type_name -> types.v1.Cursor
 	11, // 5: service.post.v1.DetailResponse.post:type_name -> types.v1.Post
