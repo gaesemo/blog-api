@@ -42,17 +42,17 @@ message DetailResponse {
 }
 
 message UpdateRequest {
-    int64 id = 1;
-    string title = 2;
-    string markdown = 3;
+    types.v1.Post post = 1;
 }
 
 message UpdateResponse {
+    bool success = 1;
 }
 
 message DeleteRequest {
-    int64 id = 1;
+    types.v1.Post post = 1;
 }
 
 message DeleteResponse {
+    bool success = 1;
 }

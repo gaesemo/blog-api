@@ -296,9 +296,7 @@ func (x *DetailResponse) GetPost() *v1.Post {
 
 type UpdateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
-	Markdown      string                 `protobuf:"bytes,3,opt,name=markdown,proto3" json:"markdown,omitempty"`
+	Post          *v1.Post               `protobuf:"bytes,1,opt,name=post,proto3" json:"post,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -333,29 +331,16 @@ func (*UpdateRequest) Descriptor() ([]byte, []int) {
 	return file_service_post_v1_service_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpdateRequest) GetId() int64 {
+func (x *UpdateRequest) GetPost() *v1.Post {
 	if x != nil {
-		return x.Id
+		return x.Post
 	}
-	return 0
-}
-
-func (x *UpdateRequest) GetTitle() string {
-	if x != nil {
-		return x.Title
-	}
-	return ""
-}
-
-func (x *UpdateRequest) GetMarkdown() string {
-	if x != nil {
-		return x.Markdown
-	}
-	return ""
+	return nil
 }
 
 type UpdateResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -390,9 +375,16 @@ func (*UpdateResponse) Descriptor() ([]byte, []int) {
 	return file_service_post_v1_service_proto_rawDescGZIP(), []int{7}
 }
 
+func (x *UpdateResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
 type DeleteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Post          *v1.Post               `protobuf:"bytes,1,opt,name=post,proto3" json:"post,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -427,15 +419,16 @@ func (*DeleteRequest) Descriptor() ([]byte, []int) {
 	return file_service_post_v1_service_proto_rawDescGZIP(), []int{8}
 }
 
-func (x *DeleteRequest) GetId() int64 {
+func (x *DeleteRequest) GetPost() *v1.Post {
 	if x != nil {
-		return x.Id
+		return x.Post
 	}
-	return 0
+	return nil
 }
 
 type DeleteResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -470,6 +463,13 @@ func (*DeleteResponse) Descriptor() ([]byte, []int) {
 	return file_service_post_v1_service_proto_rawDescGZIP(), []int{9}
 }
 
+func (x *DeleteResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
 var File_service_post_v1_service_proto protoreflect.FileDescriptor
 
 const file_service_post_v1_service_proto_rawDesc = "" +
@@ -488,15 +488,15 @@ const file_service_post_v1_service_proto_rawDesc = "" +
 	"\rDetailRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\"4\n" +
 	"\x0eDetailResponse\x12\"\n" +
-	"\x04post\x18\x01 \x01(\v2\x0e.types.v1.PostR\x04post\"Q\n" +
-	"\rUpdateRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x14\n" +
-	"\x05title\x18\x02 \x01(\tR\x05title\x12\x1a\n" +
-	"\bmarkdown\x18\x03 \x01(\tR\bmarkdown\"\x10\n" +
-	"\x0eUpdateResponse\"\x1f\n" +
-	"\rDeleteRequest\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\"\x10\n" +
-	"\x0eDeleteResponse2\x88\x03\n" +
+	"\x04post\x18\x01 \x01(\v2\x0e.types.v1.PostR\x04post\"3\n" +
+	"\rUpdateRequest\x12\"\n" +
+	"\x04post\x18\x01 \x01(\v2\x0e.types.v1.PostR\x04post\"*\n" +
+	"\x0eUpdateResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"3\n" +
+	"\rDeleteRequest\x12\"\n" +
+	"\x04post\x18\x01 \x01(\v2\x0e.types.v1.PostR\x04post\"*\n" +
+	"\x0eDeleteResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess2\x88\x03\n" +
 	"\vPostService\x12K\n" +
 	"\x06Create\x12\x1e.service.post.v1.CreateRequest\x1a\x1f.service.post.v1.CreateResponse\"\x00\x12E\n" +
 	"\x04List\x12\x1c.service.post.v1.ListRequest\x1a\x1d.service.post.v1.ListResponse\"\x00\x12K\n" +
@@ -539,21 +539,23 @@ var file_service_post_v1_service_proto_depIdxs = []int32{
 	11, // 3: service.post.v1.ListResponse.posts:type_name -> types.v1.Post
 	12, // 4: service.post.v1.ListResponse.next:type_name -> types.v1.Cursor
 	11, // 5: service.post.v1.DetailResponse.post:type_name -> types.v1.Post
-	0,  // 6: service.post.v1.PostService.Create:input_type -> service.post.v1.CreateRequest
-	2,  // 7: service.post.v1.PostService.List:input_type -> service.post.v1.ListRequest
-	4,  // 8: service.post.v1.PostService.Detail:input_type -> service.post.v1.DetailRequest
-	6,  // 9: service.post.v1.PostService.Update:input_type -> service.post.v1.UpdateRequest
-	8,  // 10: service.post.v1.PostService.Delete:input_type -> service.post.v1.DeleteRequest
-	1,  // 11: service.post.v1.PostService.Create:output_type -> service.post.v1.CreateResponse
-	3,  // 12: service.post.v1.PostService.List:output_type -> service.post.v1.ListResponse
-	5,  // 13: service.post.v1.PostService.Detail:output_type -> service.post.v1.DetailResponse
-	7,  // 14: service.post.v1.PostService.Update:output_type -> service.post.v1.UpdateResponse
-	9,  // 15: service.post.v1.PostService.Delete:output_type -> service.post.v1.DeleteResponse
-	11, // [11:16] is the sub-list for method output_type
-	6,  // [6:11] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+	11, // 6: service.post.v1.UpdateRequest.post:type_name -> types.v1.Post
+	11, // 7: service.post.v1.DeleteRequest.post:type_name -> types.v1.Post
+	0,  // 8: service.post.v1.PostService.Create:input_type -> service.post.v1.CreateRequest
+	2,  // 9: service.post.v1.PostService.List:input_type -> service.post.v1.ListRequest
+	4,  // 10: service.post.v1.PostService.Detail:input_type -> service.post.v1.DetailRequest
+	6,  // 11: service.post.v1.PostService.Update:input_type -> service.post.v1.UpdateRequest
+	8,  // 12: service.post.v1.PostService.Delete:input_type -> service.post.v1.DeleteRequest
+	1,  // 13: service.post.v1.PostService.Create:output_type -> service.post.v1.CreateResponse
+	3,  // 14: service.post.v1.PostService.List:output_type -> service.post.v1.ListResponse
+	5,  // 15: service.post.v1.PostService.Detail:output_type -> service.post.v1.DetailResponse
+	7,  // 16: service.post.v1.PostService.Update:output_type -> service.post.v1.UpdateResponse
+	9,  // 17: service.post.v1.PostService.Delete:output_type -> service.post.v1.DeleteResponse
+	13, // [13:18] is the sub-list for method output_type
+	8,  // [8:13] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_service_post_v1_service_proto_init() }

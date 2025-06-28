@@ -14,7 +14,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file service/post/v1/service.proto.
  */
 export const file_service_post_v1_service: GenFile = /*@__PURE__*/
-  fileDesc("Ch1zZXJ2aWNlL3Bvc3QvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS5wb3N0LnYxIjwKDUNyZWF0ZVJlcXVlc3QSKwoMcG9zdF9jb250ZW50GAEgASgLMhUudHlwZXMudjEuUG9zdENvbnRlbnQiLgoOQ3JlYXRlUmVzcG9uc2USHAoEcG9zdBgBIAEoCzIOLnR5cGVzLnYxLlBvc3QiPwoLTGlzdFJlcXVlc3QSJQoGY3Vyb3NyGGQgASgLMhAudHlwZXMudjEuQ3Vyc29ySACIAQFCCQoHX2N1cm9zciJNCgxMaXN0UmVzcG9uc2USHQoFcG9zdHMYASADKAsyDi50eXBlcy52MS5Qb3N0Eh4KBG5leHQYZCABKAsyEC50eXBlcy52MS5DdXJzb3IiGwoNRGV0YWlsUmVxdWVzdBIKCgJpZBgBIAEoAyIuCg5EZXRhaWxSZXNwb25zZRIcCgRwb3N0GAEgASgLMg4udHlwZXMudjEuUG9zdCI8Cg1VcGRhdGVSZXF1ZXN0EgoKAmlkGAEgASgDEg0KBXRpdGxlGAIgASgJEhAKCG1hcmtkb3duGAMgASgJIhAKDlVwZGF0ZVJlc3BvbnNlIhsKDURlbGV0ZVJlcXVlc3QSCgoCaWQYASABKAMiEAoORGVsZXRlUmVzcG9uc2UyiAMKC1Bvc3RTZXJ2aWNlEksKBkNyZWF0ZRIeLnNlcnZpY2UucG9zdC52MS5DcmVhdGVSZXF1ZXN0Gh8uc2VydmljZS5wb3N0LnYxLkNyZWF0ZVJlc3BvbnNlIgASRQoETGlzdBIcLnNlcnZpY2UucG9zdC52MS5MaXN0UmVxdWVzdBodLnNlcnZpY2UucG9zdC52MS5MaXN0UmVzcG9uc2UiABJLCgZEZXRhaWwSHi5zZXJ2aWNlLnBvc3QudjEuRGV0YWlsUmVxdWVzdBofLnNlcnZpY2UucG9zdC52MS5EZXRhaWxSZXNwb25zZSIAEksKBlVwZGF0ZRIeLnNlcnZpY2UucG9zdC52MS5VcGRhdGVSZXF1ZXN0Gh8uc2VydmljZS5wb3N0LnYxLlVwZGF0ZVJlc3BvbnNlIgASSwoGRGVsZXRlEh4uc2VydmljZS5wb3N0LnYxLkRlbGV0ZVJlcXVlc3QaHy5zZXJ2aWNlLnBvc3QudjEuRGVsZXRlUmVzcG9uc2UiAEI3WjVnaXRodWIuY29tL2dhZXNlbW8vYmxvZy1hcGkvZ28vc2VydmljZS9wb3N0L3YxO3Bvc3R2MWIGcHJvdG8z", [file_types_v1_post, file_types_v1_cursor]);
+  fileDesc("Ch1zZXJ2aWNlL3Bvc3QvdjEvc2VydmljZS5wcm90bxIPc2VydmljZS5wb3N0LnYxIjwKDUNyZWF0ZVJlcXVlc3QSKwoMcG9zdF9jb250ZW50GAEgASgLMhUudHlwZXMudjEuUG9zdENvbnRlbnQiLgoOQ3JlYXRlUmVzcG9uc2USHAoEcG9zdBgBIAEoCzIOLnR5cGVzLnYxLlBvc3QiPwoLTGlzdFJlcXVlc3QSJQoGY3Vyb3NyGGQgASgLMhAudHlwZXMudjEuQ3Vyc29ySACIAQFCCQoHX2N1cm9zciJNCgxMaXN0UmVzcG9uc2USHQoFcG9zdHMYASADKAsyDi50eXBlcy52MS5Qb3N0Eh4KBG5leHQYZCABKAsyEC50eXBlcy52MS5DdXJzb3IiGwoNRGV0YWlsUmVxdWVzdBIKCgJpZBgBIAEoAyIuCg5EZXRhaWxSZXNwb25zZRIcCgRwb3N0GAEgASgLMg4udHlwZXMudjEuUG9zdCItCg1VcGRhdGVSZXF1ZXN0EhwKBHBvc3QYASABKAsyDi50eXBlcy52MS5Qb3N0IiEKDlVwZGF0ZVJlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgiLQoNRGVsZXRlUmVxdWVzdBIcCgRwb3N0GAEgASgLMg4udHlwZXMudjEuUG9zdCIhCg5EZWxldGVSZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIMogDCgtQb3N0U2VydmljZRJLCgZDcmVhdGUSHi5zZXJ2aWNlLnBvc3QudjEuQ3JlYXRlUmVxdWVzdBofLnNlcnZpY2UucG9zdC52MS5DcmVhdGVSZXNwb25zZSIAEkUKBExpc3QSHC5zZXJ2aWNlLnBvc3QudjEuTGlzdFJlcXVlc3QaHS5zZXJ2aWNlLnBvc3QudjEuTGlzdFJlc3BvbnNlIgASSwoGRGV0YWlsEh4uc2VydmljZS5wb3N0LnYxLkRldGFpbFJlcXVlc3QaHy5zZXJ2aWNlLnBvc3QudjEuRGV0YWlsUmVzcG9uc2UiABJLCgZVcGRhdGUSHi5zZXJ2aWNlLnBvc3QudjEuVXBkYXRlUmVxdWVzdBofLnNlcnZpY2UucG9zdC52MS5VcGRhdGVSZXNwb25zZSIAEksKBkRlbGV0ZRIeLnNlcnZpY2UucG9zdC52MS5EZWxldGVSZXF1ZXN0Gh8uc2VydmljZS5wb3N0LnYxLkRlbGV0ZVJlc3BvbnNlIgBCN1o1Z2l0aHViLmNvbS9nYWVzZW1vL2Jsb2ctYXBpL2dvL3NlcnZpY2UvcG9zdC92MTtwb3N0djFiBnByb3RvMw", [file_types_v1_post, file_types_v1_cursor]);
 
 /**
  * @generated from message service.post.v1.CreateRequest
@@ -128,19 +128,9 @@ export const DetailResponseSchema: GenMessage<DetailResponse> = /*@__PURE__*/
  */
 export type UpdateRequest = Message<"service.post.v1.UpdateRequest"> & {
   /**
-   * @generated from field: int64 id = 1;
+   * @generated from field: types.v1.Post post = 1;
    */
-  id: bigint;
-
-  /**
-   * @generated from field: string title = 2;
-   */
-  title: string;
-
-  /**
-   * @generated from field: string markdown = 3;
-   */
-  markdown: string;
+  post?: Post;
 };
 
 /**
@@ -154,6 +144,10 @@ export const UpdateRequestSchema: GenMessage<UpdateRequest> = /*@__PURE__*/
  * @generated from message service.post.v1.UpdateResponse
  */
 export type UpdateResponse = Message<"service.post.v1.UpdateResponse"> & {
+  /**
+   * @generated from field: bool success = 1;
+   */
+  success: boolean;
 };
 
 /**
@@ -168,9 +162,9 @@ export const UpdateResponseSchema: GenMessage<UpdateResponse> = /*@__PURE__*/
  */
 export type DeleteRequest = Message<"service.post.v1.DeleteRequest"> & {
   /**
-   * @generated from field: int64 id = 1;
+   * @generated from field: types.v1.Post post = 1;
    */
-  id: bigint;
+  post?: Post;
 };
 
 /**
@@ -184,6 +178,10 @@ export const DeleteRequestSchema: GenMessage<DeleteRequest> = /*@__PURE__*/
  * @generated from message service.post.v1.DeleteResponse
  */
 export type DeleteResponse = Message<"service.post.v1.DeleteResponse"> & {
+  /**
+   * @generated from field: bool success = 1;
+   */
+  success: boolean;
 };
 
 /**
